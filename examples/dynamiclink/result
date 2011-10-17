@@ -1,0 +1,31 @@
+[mfukuda@uw1-320-00 dynamiclink]$ dyn_cpp
+library name = ./lib1
+function name = func1
+         this is lib1's func1 !!
+library name = ./lib1
+function name = func2
+         this is lib1's func2 !!
+library name = ./lib2
+function name = func1
+         this is lib2's func1 !!
+library name = ./lib2
+function name = func2
+         this is lib2's func2 !!
+library name = ./lib3
+function name = func1
+function: func1 not found
+library name = ./lib3
+function name = func1__Fv
+         this is lib3's func1 with no arguments !!
+library name = ./lib3
+function name = func1__Fi
+         this is lib3's func1 with an integer !!
+library name = ./lib3
+function name = func2__Fv
+         this is lib3's func2 with no arguments !!
+library name = ./lib3
+function name = func2__Fid
+         this is lib3's func2 with an integer and a double !!
+library name =
+[mfukuda@uw1-320-00 dynamiclink]$
+

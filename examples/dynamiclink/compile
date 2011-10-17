@@ -1,0 +1,7 @@
+#!/bin/sh
+g++ -rdynamic -o dyn_cpp dynamiclink.cpp -ldl
+gcc -rdynamic -o dyn_c dynamiclink.c -ldl
+gcc -shared -o lib1 lib1.c
+gcc -shared -o lib2 lib2.c
+g++ -shared -o lib3 lib3.cpp
+g++ lib3.cpp -S

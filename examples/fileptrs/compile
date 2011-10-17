@@ -1,0 +1,4 @@
+#!/bin/sh
+/usr/bin/g++ ./parent.cpp -o parent
+/usr/bin/g++ ./child.cpp -o child
+/usr/bin/g++ ./another.cpp -o another
