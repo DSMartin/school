@@ -1,7 +1,9 @@
-1318909713
+1318911919
 Boot	/Users/jth3000/CSS430/ThreadOS/Boot.java	class Boot
 BoundedBuffer	/Users/jth3000/CSS430/examples/boundedbuffer/ProducerConsumer.java	class BoundedBuffer
 Consumer	/Users/jth3000/CSS430/examples/boundedbuffer/ProducerConsumer.java	class Consumer
+DateClient	/Users/jth3000/CSS430/examples/os-book/ch3/sockets/DateClient.java	class DateClient
+DateServer	/Users/jth3000/CSS430/examples/os-book/ch3/sockets/DateServer.java	class DateServer
 Disk	/Users/jth3000/CSS430/ThreadOS/Disk.java	class Disk
 FileTableEntry	/Users/jth3000/CSS430/ThreadOS/FileTableEntry.java	class FileTableEntry
 Kernel	/Users/jth3000/CSS430/ThreadOS/Kernel.java	class Kernel
@@ -9,6 +11,13 @@ Loader	/Users/jth3000/CSS430/ThreadOS/Loader.java	class Loader
 PingPong	/Users/jth3000/CSS430/ThreadOS/PingPong.java	class PingPong
 Producer	/Users/jth3000/CSS430/examples/boundedbuffer/ProducerConsumer.java	class Producer
 ProducerConsumer	/Users/jth3000/CSS430/examples/boundedbuffer/ProducerConsumer.java	class ProducerConsumer
+RMIClient	/Users/jth3000/CSS430/examples/os-book/ch3/rmi/RMIClient.java	class RMIClient
+RMIClient	/Users/jth3000/CSS430/examples/os-book/ch3/rmi/client/RMIClient.java	class RMIClient
+RMIClient	/Users/jth3000/CSS430/examples/os-book/ch3/rmi/server/RMIClient.java	class RMIClient
+RemoteDate	/Users/jth3000/CSS430/examples/os-book/ch3/rmi/RemoteDate.java	interface RemoteDate
+RemoteDate	/Users/jth3000/CSS430/examples/os-book/ch3/rmi/server/RemoteDate.java	interface RemoteDate
+RemoteDateImpl	/Users/jth3000/CSS430/examples/os-book/ch3/rmi/RemoteDateImpl.java	class RemoteDateImpl
+RemoteDateImpl	/Users/jth3000/CSS430/examples/os-book/ch3/rmi/server/RemoteDateImpl.java	class RemoteDateImpl
 Scheduler	/Users/jth3000/CSS430/ThreadOS/Scheduler.java	class Scheduler
 SysLib	/Users/jth3000/CSS430/ThreadOS/SysLib.java	class SysLib
 TCB	/Users/jth3000/CSS430/ThreadOS/TCB.java	class TCB
@@ -16,6 +25,7 @@ Test2	/Users/jth3000/CSS430/ThreadOS/Test2.java	class Test2
 Test2b	/Users/jth3000/CSS430/ThreadOS/Test2b.java	class Test2b
 Test5	/Users/jth3000/CSS430/ThreadOS/Test5.java	class Test5
 Test6	/Users/jth3000/CSS430/ThreadOS/Test6.java	class Test6
+TestPingPong	/Users/jth3000/CSS430/ThreadOS/TestPingPong.java	class TestPingPong
 TestThread1	/Users/jth3000/CSS430/ThreadOS/TestThread1.java	class TestThread1
 TestThread2	/Users/jth3000/CSS430/ThreadOS/TestThread2.java	class TestThread2
 TestThread2b	/Users/jth3000/CSS430/ThreadOS/TestThread2b.java	class TestThread2b
@@ -45,8 +55,13 @@ diskSize	/Users/jth3000/CSS430/ThreadOS/Disk.java	    private int diskSize;
 enter( Object item )	/Users/jth3000/CSS430/examples/boundedbuffer/ProducerConsumer.java		public void enter( Object item )
 exec( String args[] )	/Users/jth3000/CSS430/ThreadOS/SysLib.java	    public static int exec( String args[] )
 exit( )	/Users/jth3000/CSS430/ThreadOS/SysLib.java	    public static int exit( )
+extension	/Users/jth3000/CSS430/ThreadOS/TestPingPong.java	class extension
 flush( )	/Users/jth3000/CSS430/ThreadOS/SysLib.java	    public static int flush( )
 from	/Users/jth3000/CSS430/ThreadOS/Kernel.java	class from
+getDate()	/Users/jth3000/CSS430/examples/os-book/ch3/rmi/RemoteDate.java		public Date getDate()
+getDate()	/Users/jth3000/CSS430/examples/os-book/ch3/rmi/RemoteDateImpl.java	  public  Date getDate()
+getDate()	/Users/jth3000/CSS430/examples/os-book/ch3/rmi/server/RemoteDate.java		public Date getDate()
+getDate()	/Users/jth3000/CSS430/examples/os-book/ch3/rmi/server/RemoteDateImpl.java	  public  Date getDate()
 getMaxThreads( )	/Users/jth3000/CSS430/ThreadOS/Scheduler.java	    public int getMaxThreads( )
 getMyTcb( )	/Users/jth3000/CSS430/ThreadOS/Scheduler.java	    public TCB getMyTcb( )
 getNewTid( )	/Users/jth3000/CSS430/ThreadOS/Scheduler.java	    private int getNewTid( )
@@ -60,6 +75,13 @@ join( )	/Users/jth3000/CSS430/ThreadOS/SysLib.java	    public static int join( )
 loop	/Users/jth3000/CSS430/ThreadOS/PingPong.java	  private int loop;
 main ( String args[] )	/Users/jth3000/CSS430/ThreadOS/Boot.java	    public static void main ( String args[] )
 main( String[] args )	/Users/jth3000/CSS430/examples/boundedbuffer/ProducerConsumer.java	    public static void main( String[] args )
+main(String args[])	/Users/jth3000/CSS430/examples/os-book/ch3/rmi/RMIClient.java	  public static void main(String args[])
+main(String args[])	/Users/jth3000/CSS430/examples/os-book/ch3/rmi/client/RMIClient.java	  public static void main(String args[])
+main(String args[])	/Users/jth3000/CSS430/examples/os-book/ch3/rmi/server/RMIClient.java	  public static void main(String args[])
+main(String[] args)	/Users/jth3000/CSS430/examples/os-book/ch3/rmi/RemoteDateImpl.java	  public static void main(String[] args)
+main(String[] args)	/Users/jth3000/CSS430/examples/os-book/ch3/rmi/server/RemoteDateImpl.java	  public static void main(String[] args)
+main(String[] args)	/Users/jth3000/CSS430/examples/os-book/ch3/sockets/DateClient.java	  public static void main(String[] args)
+main(String[] args)	/Users/jth3000/CSS430/examples/os-book/ch3/sockets/DateServer.java	  public static void main(String[] args)
 name	/Users/jth3000/CSS430/ThreadOS/TestThread1.java	private String name;
 name	/Users/jth3000/CSS430/ThreadOS/TestThread2.java	    private String name;
 name	/Users/jth3000/CSS430/ThreadOS/TestThread2b.java	    private String name;
@@ -89,6 +111,7 @@ run( )	/Users/jth3000/CSS430/ThreadOS/TestThread2.java	    public void run( )
 run( )	/Users/jth3000/CSS430/ThreadOS/TestThread2b.java	    public void run( )
 run( )	/Users/jth3000/CSS430/examples/boundedbuffer/ProducerConsumer.java		public void run( )
 run( )	/Users/jth3000/CSS430/examples/boundedbuffer/ProducerConsumer.java		public void run( )
+run()	/Users/jth3000/CSS430/ThreadOS/TestPingPong.java	    public void run()
 run()	/Users/jth3000/CSS430/ThreadOS/TestThread1.java	   public void run()
 scheduler	/Users/jth3000/CSS430/ThreadOS/Kernel.java	    private static Scheduler scheduler;
 schedulerSleep( )	/Users/jth3000/CSS430/ThreadOS/Scheduler.java	    private void schedulerSleep( )
