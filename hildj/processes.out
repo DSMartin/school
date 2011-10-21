@@ -1,0 +1,12 @@
+Running ps -A | grep sh | wc -l
+34
+Running ./processes sh
+34
+Running ps -A | grep mingetty | wc -l
+6
+Running ./processes mingetty
+6
+Running ps -A | grep gnome | wc -l
+0
+Running ./processes gnome
+0
