@@ -43,8 +43,8 @@ int main(int argc, char** argv) {
     _exit( EXIT_FAILURE );          // unless execlp failed
   } else {
     if ((pid2 = fork()) < 0) {      // fork grand-child
-      perror("pipe error");
-      exit( EXIT_FAILURE );
+      perror("fork error");
+      _exit( EXIT_FAILURE );
     }
     if (pid2 == 0) {                // Grand-child
       close(fd[1]);                 // close write-end of first pipe
@@ -58,8 +58,8 @@ int main(int argc, char** argv) {
       _exit( EXIT_FAILURE );        // unless execlp failed
     } else {
       if ((pid3 = fork()) < 0) {    // fork great-grand-child
-        perror("pipe error");
-        exit( EXIT_FAILURE );
+        perror("fork error");
+        _exit( EXIT_FAILURE );
       }
       if (pid3 == 0) {              // Great-grand-child
         close(fd[0]);               // close read-end of 1st pipe

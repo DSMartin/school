@@ -81,6 +81,16 @@ class MyShell extends Thread {
 
   private String[] stripCommand(String[] args, int idxCmdStart, 
                                 int idxCmdEnd) {
+                                  
+    // handle the case for no command (a space)
+    boolean isEmpty = true;
+    for (int i = idxCmdStart; i < idxCmdEnd; i++) {
+      if (!args[i].equals("")) {
+        isEmpty = false;
+        break;
+      }
+    }
+    if (isEmpty == true) return null;
     
     // handle the case where a command ends with a "&" or ";"
     // we will not process the "&" or ";" as an actual command
@@ -89,9 +99,8 @@ class MyShell extends Thread {
       idxCmdEnd--;
     }
     // if there is no command return null
-    if (idxCmdEnd - idxCmdStart == 0) {
-      return null;
-    }
+    if (idxCmdEnd == idxCmdStart) return null;
+    
     String[] command = new String[idxCmdEnd - idxCmdStart];
     for (int i = idxCmdStart; i < idxCmdEnd; i++) {
       command[(i - idxCmdStart)] = args[i];

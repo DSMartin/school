@@ -1,12 +1,17 @@
+Script started on Sat 22 Oct 2011 01:01:32 PM PDT
+]0;hildj@uw1-320-22:~[hildj@uw1-320-22 ~]$ ./testprog1.sh 
 Running ps -A | grep sh | wc -l
-34
+44
 Running ./processes sh
-34
+44
 Running ps -A | grep mingetty | wc -l
 6
 Running ./processes mingetty
 6
 Running ps -A | grep gnome | wc -l
-0
+9
 Running ./processes gnome
-0
+9
+]0;hildj@uw1-320-22:~[hildj@uw1-320-22 ~]$ exit
+
+Script done on Sat 22 Oct 2011 01:01:42 PM PDT

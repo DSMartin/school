@@ -37,10 +37,9 @@ If you were given another 2 weeks to work on this assignment, with the prospect
 of an additional 5 points of extra credit, how would you want to extend the program?
 
 I would want to improve upon the string processing used to handle the commands.
-I discovered a limitation where a command separator "&" or ";" could be
-followed by a space and another "&" or ";" causing the program to crash. I 
-would like to treat the command as null in this case, but relied on the
-SysLib.stringToArgs function to handle this level of processing. Another
-area I would like to dig deeper into is developing other programs that could be
-run concurrently to work on a shared problem, to test ways of parallel
-processing.
+I discovered a limitation where a space could be entered between two command
+separators, e.g. "; ;", so I handled the command as a null. However I am still
+incrementing the command prompt number, which I would like to avoid. 
+I would like to extend this program by developing or testing other programs to
+be run concurrently to work on a shared problem using MyShell (for a more 
+practical example of parallel processing).

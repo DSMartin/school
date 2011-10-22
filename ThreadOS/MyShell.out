@@ -1,5 +1,5 @@
-Script started on Fri 21 Oct 2011 08:02:26 PM PDT
-]0;hildj@uw1-320-18:~/ThreadOS[hildj@uw1-320-18 ThreadOS]$ java Boot
+Script started on Sat 22 Oct 2011 09:29:43 AM PDT
+]0;hildj@uw1-320-20:~/ThreadOS[hildj@uw1-320-20 ThreadOS]$ java Boot
 threadOS ver 1.0:
 Type ? for help
 threadOS: a new thread (thread=Thread[Thread-3,2,main] tid=0 pid=-1)
@@ -20,8 +20,8 @@ threadOS: a new thread (thread=Thread[Thread-13,2,main] tid=5 pid=1)
 shell[3]% abc abc abc abc abc abc abc abc abc abc xyz abc xyz abc xyz abc xyz abc xyz abc xyz abc xyz abc xyz abc xyz abc xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz abc 123 xyz 
 123 xyz 123 xyz 123 xyz 123 xyz 123 xyz 123 xyz 123 xyz 123 xyz 123 xyz 123 
 123 123 123 123 123 123 123 123 123 
-P 
-shell[3]% PingPong abc 100 ; Ping  Pong xyz 100;  ; pi  PingPong 123 100
+
+shell[3]% PingPong abc 100 ; PingPong xyz 100 ; PingPong 123 100
 PingPong
 threadOS: a new thread (thread=Thread[Thread-15,2,main] tid=6 pid=1)
 abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc 
@@ -36,6 +36,6 @@ exit
 -->q
 q
 Superblock synchronized
-]0;hildj@uw1-320-18:~/ThreadOS[hildj@uw1-320-18 ThreadOS]$ exit
+]0;hildj@uw1-320-20:~/ThreadOS[hildj@uw1-320-20 ThreadOS]$ exit
 
-Script done on Fri 21 Oct 2011 08:06:05 PM PDT
+Script done on Sat 22 Oct 2011 09:31:49 AM PDT
