@@ -1,0 +1,46 @@
+
+MyShell.txt
+
+What did you learn from working on this assignment?
+
+I learned how to run threads concurrently versus sequentially, in the 
+context of the SysLib class, where SysLib.join is used when we want to run a
+command sequentially, by waiting for the termination of one of the child 
+threads. To run a command concurrently, we would simply call SysLib.exec and
+not wait (not calling SysLib.join).
+
+What were the most challenging aspects of the programming problem?
+
+The most challenging aspect was parsing the strings and handling the semicolon
+and ampersand while conducting the necessary bookkeeping. It was also
+challenging setting up the correct condition to either wait or continue when
+the concurrent symbol was encountered.
+
+What mistakes did you make along the way, and how did you correct them?
+
+I made the mistake of treating the semicolon and ampersand as a command and
+various bookkeeping errors along the way. It helped to create a helper function
+to strip out the ending ampersand or semicolon, whereby it could be handled
+by the caller. With this logic the caller would evaluate if the call would 
+be run concurrently or sequentially and rely on the helper function to 
+return the actual command string array that would be sent to SysLib.exec. Also,
+this made the code more readable and less cluttered, where the helper function
+handled other checks.
+
+What external resources (beyond CSS430 web pages) did you find most valuable?
+
+I reviewed the SysLib.java, Kernel.java, and Scheduler.java classes to 
+gain context of the underlying system calls. I also reviewed the Thread class
+tutorial on the Oracle Java website.
+
+If you were given another 2 weeks to work on this assignment, with the prospect 
+of an additional 5 points of extra credit, how would you want to extend the program?
+
+I would want to improve upon the string processing used to handle the commands.
+I discovered a limitation where a command separator "&" or ";" could be
+followed by a space and another "&" or ";" causing the program to crash. I 
+would like to treat the command as null in this case, but relied on the
+SysLib.stringToArgs function to handle this level of processing. Another
+area I would like to dig deeper into is developing other programs that could be
+run concurrently to work on a shared problem, to test ways of parallel
+processing.

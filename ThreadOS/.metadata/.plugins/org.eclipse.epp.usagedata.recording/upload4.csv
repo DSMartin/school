@@ -1,0 +1,26 @@
+what,kind,bundleId,bundleVersion,description,time
+closed,view,org.eclipse.ui,3.5.1.M20090902-1000,"org.eclipse.ui.internal.introview",1319228538633
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1319228545509
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1319228593096
+started,bundle,org.eclipse.core.filesystem,1.2.0.v20090507,"org.eclipse.core.filesystem",1319228593142
+started,bundle,org.eclipse.debug.core,3.5.0.v20090526-1600,"org.eclipse.debug.core",1319228593994
+started,bundle,org.eclipse.jdt.launching,3.5.0.v20090527,"org.eclipse.jdt.launching",1319228594006
+started,bundle,org.eclipse.jdt.groovy.core,1.0.0.xx-20091023-1300-e35,"org.eclipse.jdt.groovy.core",1319228594062
+started,bundle,org.codehaus.groovy,1.7.0.xx-20091023-1300-e35,"org.codehaus.groovy",1319228594182
+started,bundle,org.eclipse.ltk.core.refactoring,3.5.0.v20090513-2000,"org.eclipse.ltk.core.refactoring",1319228595150
+started,bundle,org.eclipse.ltk.ui.refactoring,3.4.100.v20090604,"org.eclipse.ltk.ui.refactoring",1319228595660
+started,bundle,org.eclipse.compare.core,3.5.0.I20090430-0408,"org.eclipse.compare.core",1319228595935
+opened,editor,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1319228596063
+activated,editor,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1319228596364
+started,bundle,org.eclipse.jdt.launching.macosx,3.2.0.v20090527,"org.eclipse.jdt.launching.macosx",1319228596514
+executed,command,org.eclipse.ui.ide,3.5.1.M20090826-0800,"org.eclipse.ui.edit.text.openLocalFile",1319228596534
+started,bundle,org.eclipse.compare,3.5.0.I20090514-0808,"org.eclipse.compare",1319228602975
+error,log,,,"Unhandled event loop exception",1319228612332
+started,bundle,net.sf.jautodoc,1.5.0,"net.sf.jautodoc",1319228612339
+error,log,,,"Unhandled event loop exception",1319228619496
+error,log,,,"Unhandled event loop exception",1319228624584
+error,log,,,"Unhandled event loop exception",1319228634930
+error,log,,,"Unhandled event loop exception",1319228639484
+error,log,,,"Unhandled event loop exception",1319228644498
+error,log,,,"Unhandled event loop exception",1319228651864
+activated,view,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.PackageExplorer",1319228660998

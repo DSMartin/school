@@ -64,8 +64,8 @@ int main(int argc, char** argv) {
       if (pid3 == 0) {              // Great-grand-child
         close(fd[0]);               // close read-end of 1st pipe
         close(fd2[1]);              // close write-end of 2nd pipe
-        dup2(fd[1], 1);             // STDOUT gets copy of write-end of 2nd pipe
-        close(fd[1]);               // close original write-end of 2nd pipe
+        dup2(fd[1], 1);             // STDOUT gets copy of write-end of 1st pipe
+        close(fd[1]);               // close original write-end of 1st pipe
         execlp("ps", "ps", "-A", NULL);
         perror("execlp (ps)");      // should not get here
         _exit( EXIT_FAILURE );      // unless execlp failed

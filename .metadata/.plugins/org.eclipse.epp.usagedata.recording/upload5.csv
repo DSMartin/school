@@ -1,0 +1,26 @@
+what,kind,bundleId,bundleVersion,description,time
+executed,command,org.eclipse.ui,3.5.1.M20090902-1000,"org.eclipse.ui.file.properties",1319228962744
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1319228963331
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1319228966046
+activated,editor,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1319228977711
+activated,view,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.PackageExplorer",1319228984247
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1319228992378
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1319228995689
+executed,command,org.eclipse.ui,3.5.1.M20090902-1000,"org.eclipse.ui.file.properties",1319228995735
+activated,editor,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1319228996794
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1319229001469
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1319229001571
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1319229003531
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1319229005450
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1319229009375
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1319229011424
+executed,command,org.eclipse.ui,3.5.1.M20090902-1000,"org.eclipse.ui.file.properties",1319229011491
+activated,view,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.PackageExplorer",1319229013087
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1319229016710
+started,bundle,org.eclipse.jdt.debug,3.5.0.v20090526,"org.eclipse.jdt.debug",1319229039125
+started,bundle,org.eclipse.debug.ui,3.5.1.v20090811_r351,"org.eclipse.debug.ui",1319229039269
+started,bundle,org.eclipse.jdt.debug.ui,3.4.1.v20090811_r351,"org.eclipse.jdt.debug.ui",1319229039394
+error,log,,,"Unhandled event loop exception",1319229039857
+error,log,,,"Unhandled event loop exception",1319229045488
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1319229059874
+executed,command,org.eclipse.ui,3.5.1.M20090902-1000,"org.eclipse.ui.file.properties",1319229059941

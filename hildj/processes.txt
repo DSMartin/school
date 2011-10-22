@@ -1,0 +1,44 @@
+
+processes.txt
+
+What did you learn from working on this assignment?
+
+I learned the way processes are forked in Unix and other Unix system calls. In
+trying to solve this problem, I got a lot better understanding of how STDIN and
+STDOUT are handled in pipes, where the pipe system call is made to create the
+necessary file descriptors that can be copied to STDIN or STDOUT so the read or
+write end of the pipe can connect two processes. I also discovered how important
+it is to properly close the appropriate ends of each pipe at the appropriate
+process forks.
+
+What were the most challenging aspects of the programming problem?
+
+The most challenging aspect was figuring out to properly close the appropriate
+file descriptors at each stage of processing.  I had difficulty understanding
+how the dup2 system call made a copy of a file descriptor such that a closed
+file descriptor would be open in the copy. I discovered that the dup2 call
+actually closes an open file descriptor before duplicating it, so that cleared
+up my misunderstanding.
+
+What mistakes did you make along the way, and how did you correct them?
+
+I spent a lot of time trying to get output from the second command to get to the
+third command. I was able to use gdb to set breakpoints in my code and evaluate
+the state of variables to determine where the process was breaking down. I came
+to understand that I should set all file descriptors (four all together) to
+the proper state at each process. For example, in the great-grand-child process,
+where the first command is executed, I realized I should close the read-end
+of the first pipe and the write-end of the second pipe.
+
+What external resources (beyond CSS430 web pages) did you find most valuable?
+
+Other than the resources linked from the course web pages, I found some
+enlightening lecture videos about Unix system calls on youtube.
+
+If you were given another 2 weeks to work on this assignment, with the prospect 
+of an additional 5 points of extra credit, how would you want to extend the program?
+
+I would want to create a more general utility that would store a collection
+of commands in the order they should be called and a recursive function that
+would fork processes and execute the appropriate command in the order it should
+be processed.

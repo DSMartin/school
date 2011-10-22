@@ -1,152 +1,179 @@
-1318911919
-Boot	/Users/jth3000/CSS430/ThreadOS/Boot.java	class Boot
-BoundedBuffer	/Users/jth3000/CSS430/examples/boundedbuffer/ProducerConsumer.java	class BoundedBuffer
-Consumer	/Users/jth3000/CSS430/examples/boundedbuffer/ProducerConsumer.java	class Consumer
-DateClient	/Users/jth3000/CSS430/examples/os-book/ch3/sockets/DateClient.java	class DateClient
-DateServer	/Users/jth3000/CSS430/examples/os-book/ch3/sockets/DateServer.java	class DateServer
-Disk	/Users/jth3000/CSS430/ThreadOS/Disk.java	class Disk
-FileTableEntry	/Users/jth3000/CSS430/ThreadOS/FileTableEntry.java	class FileTableEntry
-Kernel	/Users/jth3000/CSS430/ThreadOS/Kernel.java	class Kernel
-Loader	/Users/jth3000/CSS430/ThreadOS/Loader.java	class Loader
-PingPong	/Users/jth3000/CSS430/ThreadOS/PingPong.java	class PingPong
-Producer	/Users/jth3000/CSS430/examples/boundedbuffer/ProducerConsumer.java	class Producer
-ProducerConsumer	/Users/jth3000/CSS430/examples/boundedbuffer/ProducerConsumer.java	class ProducerConsumer
-RMIClient	/Users/jth3000/CSS430/examples/os-book/ch3/rmi/RMIClient.java	class RMIClient
-RMIClient	/Users/jth3000/CSS430/examples/os-book/ch3/rmi/client/RMIClient.java	class RMIClient
-RMIClient	/Users/jth3000/CSS430/examples/os-book/ch3/rmi/server/RMIClient.java	class RMIClient
-RemoteDate	/Users/jth3000/CSS430/examples/os-book/ch3/rmi/RemoteDate.java	interface RemoteDate
-RemoteDate	/Users/jth3000/CSS430/examples/os-book/ch3/rmi/server/RemoteDate.java	interface RemoteDate
-RemoteDateImpl	/Users/jth3000/CSS430/examples/os-book/ch3/rmi/RemoteDateImpl.java	class RemoteDateImpl
-RemoteDateImpl	/Users/jth3000/CSS430/examples/os-book/ch3/rmi/server/RemoteDateImpl.java	class RemoteDateImpl
-Scheduler	/Users/jth3000/CSS430/ThreadOS/Scheduler.java	class Scheduler
-SysLib	/Users/jth3000/CSS430/ThreadOS/SysLib.java	class SysLib
-TCB	/Users/jth3000/CSS430/ThreadOS/TCB.java	class TCB
-Test2	/Users/jth3000/CSS430/ThreadOS/Test2.java	class Test2
-Test2b	/Users/jth3000/CSS430/ThreadOS/Test2b.java	class Test2b
-Test5	/Users/jth3000/CSS430/ThreadOS/Test5.java	class Test5
-Test6	/Users/jth3000/CSS430/ThreadOS/Test6.java	class Test6
-TestPingPong	/Users/jth3000/CSS430/ThreadOS/TestPingPong.java	class TestPingPong
-TestThread1	/Users/jth3000/CSS430/ThreadOS/TestThread1.java	class TestThread1
-TestThread2	/Users/jth3000/CSS430/ThreadOS/TestThread2.java	class TestThread2
-TestThread2b	/Users/jth3000/CSS430/ThreadOS/TestThread2b.java	class TestThread2b
-addThread( Thread t )	/Users/jth3000/CSS430/ThreadOS/Scheduler.java	    public TCB addThread( Thread t )
-boot( )	/Users/jth3000/CSS430/ThreadOS/SysLib.java	    public static int boot( )
-bytes2int( byte[] b, int offset )	/Users/jth3000/CSS430/ThreadOS/SysLib.java	    public static int bytes2int( byte[] b, int offset )
-bytes2short( byte[] b, int offset )	/Users/jth3000/CSS430/ThreadOS/SysLib.java	    public static short bytes2short( byte[] b, int offset )
-cache	/Users/jth3000/CSS430/ThreadOS/Kernel.java	    private static Cache cache;
-cerr( String s )	/Users/jth3000/CSS430/ThreadOS/SysLib.java	    public static int cerr( String s )
-cin( StringBuffer s )	/Users/jth3000/CSS430/ThreadOS/SysLib.java	    public static int cin( StringBuffer s )
-command	/Users/jth3000/CSS430/ThreadOS/Disk.java	    private int command;
-completionTime	/Users/jth3000/CSS430/ThreadOS/TestThread2.java	    private long completionTime;
-completionTime	/Users/jth3000/CSS430/ThreadOS/TestThread2b.java	    private long completionTime;
-count	/Users/jth3000/CSS430/ThreadOS/FileTableEntry.java	    public int count;
-count	/Users/jth3000/CSS430/examples/boundedbuffer/ProducerConsumer.java		private int count;
-cout( String s )	/Users/jth3000/CSS430/ThreadOS/SysLib.java	    public static int cout( String s )
-cpuBurst	/Users/jth3000/CSS430/ThreadOS/TestThread2.java	    private int cpuBurst;
-cpuBurst	/Users/jth3000/CSS430/ThreadOS/TestThread2b.java	    private int cpuBurst;
-cread( int blkNumber, byte[] b )	/Users/jth3000/CSS430/ThreadOS/SysLib.java	    public static int cread( int blkNumber, byte[] b )
-csync( )	/Users/jth3000/CSS430/ThreadOS/SysLib.java	    public static int csync( )
-currentBlockId	/Users/jth3000/CSS430/ThreadOS/Disk.java	    private int currentBlockId;
-cwrite( int blkNumber, byte[] b )	/Users/jth3000/CSS430/ThreadOS/SysLib.java	    public static int cwrite( int blkNumber, byte[] b )
-deleteThread( )	/Users/jth3000/CSS430/ThreadOS/Scheduler.java	    public boolean deleteThread( )
-disk	/Users/jth3000/CSS430/ThreadOS/Kernel.java	    private static Disk disk;
-disk( )	/Users/jth3000/CSS430/ThreadOS/SysLib.java	    public static int disk( )
-diskSize	/Users/jth3000/CSS430/ThreadOS/Disk.java	    private int diskSize;
-enter( Object item )	/Users/jth3000/CSS430/examples/boundedbuffer/ProducerConsumer.java		public void enter( Object item )
-exec( String args[] )	/Users/jth3000/CSS430/ThreadOS/SysLib.java	    public static int exec( String args[] )
-exit( )	/Users/jth3000/CSS430/ThreadOS/SysLib.java	    public static int exit( )
-extension	/Users/jth3000/CSS430/ThreadOS/TestPingPong.java	class extension
-flush( )	/Users/jth3000/CSS430/ThreadOS/SysLib.java	    public static int flush( )
-from	/Users/jth3000/CSS430/ThreadOS/Kernel.java	class from
-getDate()	/Users/jth3000/CSS430/examples/os-book/ch3/rmi/RemoteDate.java		public Date getDate()
-getDate()	/Users/jth3000/CSS430/examples/os-book/ch3/rmi/RemoteDateImpl.java	  public  Date getDate()
-getDate()	/Users/jth3000/CSS430/examples/os-book/ch3/rmi/server/RemoteDate.java		public Date getDate()
-getDate()	/Users/jth3000/CSS430/examples/os-book/ch3/rmi/server/RemoteDateImpl.java	  public  Date getDate()
-getMaxThreads( )	/Users/jth3000/CSS430/ThreadOS/Scheduler.java	    public int getMaxThreads( )
-getMyTcb( )	/Users/jth3000/CSS430/ThreadOS/Scheduler.java	    public TCB getMyTcb( )
-getNewTid( )	/Users/jth3000/CSS430/ThreadOS/Scheduler.java	    private int getNewTid( )
-help( )	/Users/jth3000/CSS430/ThreadOS/Loader.java	    private static void help( )
-in	/Users/jth3000/CSS430/examples/boundedbuffer/ProducerConsumer.java		private int in;
-initTid( int maxThreads )	/Users/jth3000/CSS430/ThreadOS/Scheduler.java	    private void initTid( int maxThreads )
-int2bytes( int i, byte[] b, int offset )	/Users/jth3000/CSS430/ThreadOS/SysLib.java	    public static void int2bytes( int i, byte[] b, int offset )
-interrupt( int irq, int cmd, int param, Object args )	/Users/jth3000/CSS430/ThreadOS/Kernel.java	    public static int interrupt( int irq, int cmd, int param, Object args )
-ioQueue	/Users/jth3000/CSS430/ThreadOS/Kernel.java	    private static SyncQueue ioQueue;
-join( )	/Users/jth3000/CSS430/ThreadOS/SysLib.java	    public static int join( )
-loop	/Users/jth3000/CSS430/ThreadOS/PingPong.java	  private int loop;
-main ( String args[] )	/Users/jth3000/CSS430/ThreadOS/Boot.java	    public static void main ( String args[] )
-main( String[] args )	/Users/jth3000/CSS430/examples/boundedbuffer/ProducerConsumer.java	    public static void main( String[] args )
-main(String args[])	/Users/jth3000/CSS430/examples/os-book/ch3/rmi/RMIClient.java	  public static void main(String args[])
-main(String args[])	/Users/jth3000/CSS430/examples/os-book/ch3/rmi/client/RMIClient.java	  public static void main(String args[])
-main(String args[])	/Users/jth3000/CSS430/examples/os-book/ch3/rmi/server/RMIClient.java	  public static void main(String args[])
-main(String[] args)	/Users/jth3000/CSS430/examples/os-book/ch3/rmi/RemoteDateImpl.java	  public static void main(String[] args)
-main(String[] args)	/Users/jth3000/CSS430/examples/os-book/ch3/rmi/server/RemoteDateImpl.java	  public static void main(String[] args)
-main(String[] args)	/Users/jth3000/CSS430/examples/os-book/ch3/sockets/DateClient.java	  public static void main(String[] args)
-main(String[] args)	/Users/jth3000/CSS430/examples/os-book/ch3/sockets/DateServer.java	  public static void main(String[] args)
-name	/Users/jth3000/CSS430/ThreadOS/TestThread1.java	private String name;
-name	/Users/jth3000/CSS430/ThreadOS/TestThread2.java	    private String name;
-name	/Users/jth3000/CSS430/ThreadOS/TestThread2b.java	    private String name;
-nextId	/Users/jth3000/CSS430/ThreadOS/Scheduler.java	    private int nextId =
-obj	/Users/jth3000/CSS430/ThreadOS/Kernel.java	class obj
-object	/Users/jth3000/CSS430/ThreadOS/Kernel.java	class object
-object	/Users/jth3000/CSS430/ThreadOS/Kernel.java	class object
-out	/Users/jth3000/CSS430/examples/boundedbuffer/ProducerConsumer.java		private int out;
-pid	/Users/jth3000/CSS430/ThreadOS/TCB.java	    private int pid =
-queue	/Users/jth3000/CSS430/ThreadOS/Scheduler.java	    private Vector queue;
-rawread( int blkNumber, byte[] b )	/Users/jth3000/CSS430/ThreadOS/SysLib.java	    public static int rawread( int blkNumber, byte[] b )
-rawwrite( int blkNumber, byte[] b )	/Users/jth3000/CSS430/ThreadOS/SysLib.java	    public static int rawwrite( int blkNumber, byte[] b )
-readyBuffer	/Users/jth3000/CSS430/ThreadOS/Disk.java	    private boolean readyBuffer;
-remove( )	/Users/jth3000/CSS430/examples/boundedbuffer/ProducerConsumer.java		public Object remove( )
-responseTime	/Users/jth3000/CSS430/ThreadOS/TestThread2.java	    private long responseTime;
-responseTime	/Users/jth3000/CSS430/ThreadOS/TestThread2b.java	    private long responseTime;
-returnTid( int tid )	/Users/jth3000/CSS430/ThreadOS/Scheduler.java	    private boolean returnTid( int tid )
-run ( )	/Users/jth3000/CSS430/ThreadOS/Disk.java	    public void run ( )
-run( )	/Users/jth3000/CSS430/ThreadOS/Loader.java	    public void run( )
-run( )	/Users/jth3000/CSS430/ThreadOS/PingPong.java	  public void run( )
-run( )	/Users/jth3000/CSS430/ThreadOS/Scheduler.java	    public void run( )
-run( )	/Users/jth3000/CSS430/ThreadOS/Test2.java	    public void run( )
-run( )	/Users/jth3000/CSS430/ThreadOS/Test2b.java	    public void run( )
-run( )	/Users/jth3000/CSS430/ThreadOS/Test5.java	    public void run( )
-run( )	/Users/jth3000/CSS430/ThreadOS/Test6.java	    public void run( )
-run( )	/Users/jth3000/CSS430/ThreadOS/TestThread2.java	    public void run( )
-run( )	/Users/jth3000/CSS430/ThreadOS/TestThread2b.java	    public void run( )
-run( )	/Users/jth3000/CSS430/examples/boundedbuffer/ProducerConsumer.java		public void run( )
-run( )	/Users/jth3000/CSS430/examples/boundedbuffer/ProducerConsumer.java		public void run( )
-run()	/Users/jth3000/CSS430/ThreadOS/TestPingPong.java	    public void run()
-run()	/Users/jth3000/CSS430/ThreadOS/TestThread1.java	   public void run()
-scheduler	/Users/jth3000/CSS430/ThreadOS/Kernel.java	    private static Scheduler scheduler;
-schedulerSleep( )	/Users/jth3000/CSS430/ThreadOS/Scheduler.java	    private void schedulerSleep( )
-seek( )	/Users/jth3000/CSS430/ThreadOS/Disk.java	    private void seek( )
-seekPtr	/Users/jth3000/CSS430/ThreadOS/FileTableEntry.java	    public int seekPtr;
-short2bytes( short s, byte[] b, int offset )	/Users/jth3000/CSS430/ThreadOS/SysLib.java	    public static void short2bytes( short s, byte[] b, int offset )
-sleep( int milliseconds )	/Users/jth3000/CSS430/ThreadOS/SysLib.java	    public static int sleep( int milliseconds )
-sleepThread( int milliseconds )	/Users/jth3000/CSS430/ThreadOS/Scheduler.java	    public void sleepThread( int milliseconds )
-sleepTime	/Users/jth3000/CSS430/ThreadOS/TCB.java	    private int sleepTime =
-submissionTime	/Users/jth3000/CSS430/ThreadOS/TestThread2.java	    private long submissionTime;
-submissionTime	/Users/jth3000/CSS430/ThreadOS/TestThread2b.java	    private long submissionTime;
-sync( )	/Users/jth3000/CSS430/ThreadOS/SysLib.java	    public static int sync( )
-sysExec( String args[] )	/Users/jth3000/CSS430/ThreadOS/Kernel.java	    private static int sysExec( String args[] )
-targetBlockId	/Users/jth3000/CSS430/ThreadOS/Disk.java	    private int targetBlockId;
-terminated	/Users/jth3000/CSS430/ThreadOS/TCB.java	    private boolean terminated =
-test1( )	/Users/jth3000/CSS430/ThreadOS/Test5.java	    private boolean test1( )
-test10( )	/Users/jth3000/CSS430/ThreadOS/Test5.java	    private boolean test10( )
-test11( )	/Users/jth3000/CSS430/ThreadOS/Test5.java	    private boolean test11( )
-test12( )	/Users/jth3000/CSS430/ThreadOS/Test5.java	    private boolean test12( )
-test13( )	/Users/jth3000/CSS430/ThreadOS/Test5.java	    private boolean test13( )
-test14( )	/Users/jth3000/CSS430/ThreadOS/Test5.java	    private boolean test14( )
-test15( )	/Users/jth3000/CSS430/ThreadOS/Test5.java	    private boolean test15( )
-test16( )	/Users/jth3000/CSS430/ThreadOS/Test5.java	    private boolean test16( )
-test17( )	/Users/jth3000/CSS430/ThreadOS/Test5.java	    private boolean test17( )
-test18( )	/Users/jth3000/CSS430/ThreadOS/Test5.java	    private boolean test18( )
-test2( )	/Users/jth3000/CSS430/ThreadOS/Test5.java	    private boolean test2( )
-test3( )	/Users/jth3000/CSS430/ThreadOS/Test5.java	    private boolean test3( )
-test4( )	/Users/jth3000/CSS430/ThreadOS/Test5.java	    private boolean test4( )
-test5( )	/Users/jth3000/CSS430/ThreadOS/Test5.java	    private boolean test5( )
-test6( )	/Users/jth3000/CSS430/ThreadOS/Test5.java	    private boolean test6( )
-test7( )	/Users/jth3000/CSS430/ThreadOS/Test5.java	    private boolean test7( )
-test8( )	/Users/jth3000/CSS430/ThreadOS/Test5.java	    private boolean test8( )
-test9( )	/Users/jth3000/CSS430/ThreadOS/Test5.java	    private boolean test9( )
-thread	/Users/jth3000/CSS430/ThreadOS/TCB.java	    private Thread thread =
-tid	/Users/jth3000/CSS430/ThreadOS/TCB.java	    private int tid =
-timeSlice	/Users/jth3000/CSS430/ThreadOS/Scheduler.java	    private int timeSlice;
-waitQueue	/Users/jth3000/CSS430/ThreadOS/Kernel.java	    private static SyncQueue waitQueue;
-word	/Users/jth3000/CSS430/ThreadOS/PingPong.java	  private String word;
+1319250415
+Boot	/Users/jth3000/css430/ThreadOS/Boot.java	class Boot
+BoundedBuffer	/Users/jth3000/css430/examples/boundedbuffer/ProducerConsumer.java	class BoundedBuffer
+Channel	/Users/jth3000/css430/examples/threads/Channel.java	interface Channel
+Consumer	/Users/jth3000/css430/examples/boundedbuffer/ProducerConsumer.java	class Consumer
+Consumer	/Users/jth3000/css430/examples/threads/Consumer.java	class Consumer
+DateClient	/Users/jth3000/css430/examples/os-book/ch3/sockets/DateClient.java	class DateClient
+DateServer	/Users/jth3000/css430/examples/os-book/ch3/sockets/DateServer.java	class DateServer
+Disk	/Users/jth3000/css430/ThreadOS/Disk.java	class Disk
+Factory	/Users/jth3000/css430/examples/threads/Factory.java	class Factory
+FileTableEntry	/Users/jth3000/css430/ThreadOS/FileTableEntry.java	class FileTableEntry
+HelloWorld	/Users/jth3000/css430/ThreadOS/HelloWorld.java	class HelloWorld
+Kernel	/Users/jth3000/css430/ThreadOS/Kernel.java	class Kernel
+Loader	/Users/jth3000/css430/ThreadOS/Loader.java	class Loader
+MessageQueue	/Users/jth3000/css430/examples/threads/MessageQueue.java	class MessageQueue
+MyShell	/Users/jth3000/css430/ThreadOS/MyShell.java	class MyShell
+MyThread	/Users/jth3000/css430/examples/threads/MyThread.java	class MyThread
+PingPong	/Users/jth3000/css430/ThreadOS/PingPong.java	class PingPong
+Producer	/Users/jth3000/css430/examples/boundedbuffer/ProducerConsumer.java	class Producer
+Producer	/Users/jth3000/css430/examples/threads/Producer.java	class Producer
+ProducerConsumer	/Users/jth3000/css430/examples/boundedbuffer/ProducerConsumer.java	class ProducerConsumer
+RMIClient	/Users/jth3000/css430/examples/os-book/ch3/rmi/RMIClient.java	class RMIClient
+RMIClient	/Users/jth3000/css430/examples/os-book/ch3/rmi/client/RMIClient.java	class RMIClient
+RMIClient	/Users/jth3000/css430/examples/os-book/ch3/rmi/server/RMIClient.java	class RMIClient
+RemoteDate	/Users/jth3000/css430/examples/os-book/ch3/rmi/RemoteDate.java	interface RemoteDate
+RemoteDate	/Users/jth3000/css430/examples/os-book/ch3/rmi/server/RemoteDate.java	interface RemoteDate
+RemoteDateImpl	/Users/jth3000/css430/examples/os-book/ch3/rmi/RemoteDateImpl.java	class RemoteDateImpl
+RemoteDateImpl	/Users/jth3000/css430/examples/os-book/ch3/rmi/server/RemoteDateImpl.java	class RemoteDateImpl
+Scheduler	/Users/jth3000/css430/ThreadOS/Scheduler.java	class Scheduler
+SleepUtilities	/Users/jth3000/css430/examples/threads/SleepUtilities.java	class SleepUtilities
+SysLib	/Users/jth3000/css430/ThreadOS/SysLib.java	class SysLib
+TCB	/Users/jth3000/css430/ThreadOS/TCB.java	class TCB
+Test2	/Users/jth3000/css430/ThreadOS/Test2.java	class Test2
+Test2b	/Users/jth3000/css430/ThreadOS/Test2b.java	class Test2b
+Test5	/Users/jth3000/css430/ThreadOS/Test5.java	class Test5
+Test6	/Users/jth3000/css430/ThreadOS/Test6.java	class Test6
+TestPingPong	/Users/jth3000/css430/ThreadOS/TestPingPong.java	class TestPingPong
+TestThread1	/Users/jth3000/css430/ThreadOS/TestThread1.java	class TestThread1
+TestThread2	/Users/jth3000/css430/ThreadOS/TestThread2.java	class TestThread2
+TestThread2b	/Users/jth3000/css430/ThreadOS/TestThread2b.java	class TestThread2b
+ThreadFunc	/Users/jth3000/css430/examples/threads/ThreadFunc.java	class ThreadFunc
+addThread( Thread t )	/Users/jth3000/css430/ThreadOS/Scheduler.java	    public TCB addThread( Thread t )
+boot( )	/Users/jth3000/css430/ThreadOS/SysLib.java	    public static int boot( )
+bytes2int( byte[] b, int offset )	/Users/jth3000/css430/ThreadOS/SysLib.java	    public static int bytes2int( byte[] b, int offset )
+bytes2short( byte[] b, int offset )	/Users/jth3000/css430/ThreadOS/SysLib.java	    public static short bytes2short( byte[] b, int offset )
+cache	/Users/jth3000/css430/ThreadOS/Kernel.java	    private static Cache cache;
+cerr( String s )	/Users/jth3000/css430/ThreadOS/SysLib.java	    public static int cerr( String s )
+cin( StringBuffer s )	/Users/jth3000/css430/ThreadOS/SysLib.java	    public static int cin( StringBuffer s )
+command	/Users/jth3000/css430/ThreadOS/Disk.java	    private int command;
+completionTime	/Users/jth3000/css430/ThreadOS/TestThread2.java	    private long completionTime;
+completionTime	/Users/jth3000/css430/ThreadOS/TestThread2b.java	    private long completionTime;
+consumerId	/Users/jth3000/css430/examples/threads/Consumer.java	    private int consumerId;
+count	/Users/jth3000/css430/ThreadOS/FileTableEntry.java	    public int count;
+count	/Users/jth3000/css430/examples/boundedbuffer/ProducerConsumer.java		private int count;
+cout( String s )	/Users/jth3000/css430/ThreadOS/SysLib.java	    public static int cout( String s )
+cpuBurst	/Users/jth3000/css430/ThreadOS/TestThread2.java	    private int cpuBurst;
+cpuBurst	/Users/jth3000/css430/ThreadOS/TestThread2b.java	    private int cpuBurst;
+cread( int blkNumber, byte[] b )	/Users/jth3000/css430/ThreadOS/SysLib.java	    public static int cread( int blkNumber, byte[] b )
+csync( )	/Users/jth3000/css430/ThreadOS/SysLib.java	    public static int csync( )
+currentBlockId	/Users/jth3000/css430/ThreadOS/Disk.java	    private int currentBlockId;
+cwrite( int blkNumber, byte[] b )	/Users/jth3000/css430/ThreadOS/SysLib.java	    public static int cwrite( int blkNumber, byte[] b )
+deleteThread( )	/Users/jth3000/css430/ThreadOS/Scheduler.java	    public boolean deleteThread( )
+disk	/Users/jth3000/css430/ThreadOS/Kernel.java	    private static Disk disk;
+disk( )	/Users/jth3000/css430/ThreadOS/SysLib.java	    public static int disk( )
+diskSize	/Users/jth3000/css430/ThreadOS/Disk.java	    private int diskSize;
+enter( Object item )	/Users/jth3000/css430/examples/boundedbuffer/ProducerConsumer.java		public void enter( Object item )
+exec( String args[] )	/Users/jth3000/css430/ThreadOS/SysLib.java	    public static int exec( String args[] )
+exit( )	/Users/jth3000/css430/ThreadOS/SysLib.java	    public static int exit( )
+extension	/Users/jth3000/css430/ThreadOS/TestPingPong.java	class extension
+flush( )	/Users/jth3000/css430/ThreadOS/SysLib.java	    public static int flush( )
+from	/Users/jth3000/css430/ThreadOS/Kernel.java	class from
+getDate()	/Users/jth3000/css430/examples/os-book/ch3/rmi/RemoteDate.java		public Date getDate()
+getDate()	/Users/jth3000/css430/examples/os-book/ch3/rmi/RemoteDateImpl.java	  public  Date getDate()
+getDate()	/Users/jth3000/css430/examples/os-book/ch3/rmi/server/RemoteDate.java		public Date getDate()
+getDate()	/Users/jth3000/css430/examples/os-book/ch3/rmi/server/RemoteDateImpl.java	  public  Date getDate()
+getMaxThreads( )	/Users/jth3000/css430/ThreadOS/Scheduler.java	    public int getMaxThreads( )
+getMyTcb( )	/Users/jth3000/css430/ThreadOS/Scheduler.java	    public TCB getMyTcb( )
+getNewTid( )	/Users/jth3000/css430/ThreadOS/Scheduler.java	    private int getNewTid( )
+help( )	/Users/jth3000/css430/ThreadOS/Loader.java	    private static void help( )
+illustrating	/Users/jth3000/css430/examples/threads/MessageQueue.java	interface illustrating
+in	/Users/jth3000/css430/examples/boundedbuffer/ProducerConsumer.java		private int in;
+initTid( int maxThreads )	/Users/jth3000/css430/ThreadOS/Scheduler.java	    private void initTid( int maxThreads )
+int2bytes( int i, byte[] b, int offset )	/Users/jth3000/css430/ThreadOS/SysLib.java	    public static void int2bytes( int i, byte[] b, int offset )
+interrupt( int irq, int cmd, int param, Object args )	/Users/jth3000/css430/ThreadOS/Kernel.java	    public static int interrupt( int irq, int cmd, int param, Object args )
+ioQueue	/Users/jth3000/css430/ThreadOS/Kernel.java	    private static SyncQueue ioQueue;
+join( )	/Users/jth3000/css430/ThreadOS/SysLib.java	    public static int join( )
+loop	/Users/jth3000/css430/ThreadOS/PingPong.java	  private int loop;
+main ( String args[] )	/Users/jth3000/css430/ThreadOS/Boot.java	    public static void main ( String args[] )
+main( String args[] )	/Users/jth3000/css430/examples/threads/MyThread.java	  public static void main( String args[] )
+main( String[] args )	/Users/jth3000/css430/examples/boundedbuffer/ProducerConsumer.java	    public static void main( String[] args )
+main( String[] args )	/Users/jth3000/css430/examples/threads/Factory.java	  public static void main( String[] args )
+main(String args[])	/Users/jth3000/css430/examples/os-book/ch3/rmi/RMIClient.java	  public static void main(String args[])
+main(String args[])	/Users/jth3000/css430/examples/os-book/ch3/rmi/client/RMIClient.java	  public static void main(String args[])
+main(String args[])	/Users/jth3000/css430/examples/os-book/ch3/rmi/server/RMIClient.java	  public static void main(String args[])
+main(String[] args)	/Users/jth3000/css430/examples/os-book/ch3/rmi/RemoteDateImpl.java	  public static void main(String[] args)
+main(String[] args)	/Users/jth3000/css430/examples/os-book/ch3/rmi/server/RemoteDateImpl.java	  public static void main(String[] args)
+main(String[] args)	/Users/jth3000/css430/examples/os-book/ch3/sockets/DateClient.java	  public static void main(String[] args)
+main(String[] args)	/Users/jth3000/css430/examples/os-book/ch3/sockets/DateServer.java	  public static void main(String[] args)
+name	/Users/jth3000/css430/ThreadOS/TestThread1.java	private String name;
+name	/Users/jth3000/css430/ThreadOS/TestThread2.java	    private String name;
+name	/Users/jth3000/css430/ThreadOS/TestThread2b.java	    private String name;
+nap()	/Users/jth3000/css430/examples/threads/SleepUtilities.java	  public static void nap()
+nap(int duration)	/Users/jth3000/css430/examples/threads/SleepUtilities.java	  public static void nap(int duration)
+nextId	/Users/jth3000/css430/ThreadOS/Scheduler.java	    private int nextId =
+obj	/Users/jth3000/css430/ThreadOS/Kernel.java	class obj
+object	/Users/jth3000/css430/ThreadOS/Kernel.java	class object
+object	/Users/jth3000/css430/ThreadOS/Kernel.java	class object
+out	/Users/jth3000/css430/examples/boundedbuffer/ProducerConsumer.java		private int out;
+param	/Users/jth3000/css430/examples/threads/ThreadFunc.java	  private String param;
+pid	/Users/jth3000/css430/ThreadOS/TCB.java	    private int pid =
+queue	/Users/jth3000/css430/ThreadOS/Scheduler.java	    private Vector queue;
+rawread( int blkNumber, byte[] b )	/Users/jth3000/css430/ThreadOS/SysLib.java	    public static int rawread( int blkNumber, byte[] b )
+rawwrite( int blkNumber, byte[] b )	/Users/jth3000/css430/ThreadOS/SysLib.java	    public static int rawwrite( int blkNumber, byte[] b )
+readyBuffer	/Users/jth3000/css430/ThreadOS/Disk.java	    private boolean readyBuffer;
+receive()	/Users/jth3000/css430/examples/threads/Channel.java	  public E receive()
+receive()	/Users/jth3000/css430/examples/threads/MessageQueue.java	  public E receive()
+remove( )	/Users/jth3000/css430/examples/boundedbuffer/ProducerConsumer.java		public Object remove( )
+responseTime	/Users/jth3000/css430/ThreadOS/TestThread2.java	    private long responseTime;
+responseTime	/Users/jth3000/css430/ThreadOS/TestThread2b.java	    private long responseTime;
+returnTid( int tid )	/Users/jth3000/css430/ThreadOS/Scheduler.java	    private boolean returnTid( int tid )
+run ( )	/Users/jth3000/css430/ThreadOS/Disk.java	    public void run ( )
+run( )	/Users/jth3000/css430/ThreadOS/Loader.java	    public void run( )
+run( )	/Users/jth3000/css430/ThreadOS/PingPong.java	  public void run( )
+run( )	/Users/jth3000/css430/ThreadOS/Scheduler.java	    public void run( )
+run( )	/Users/jth3000/css430/ThreadOS/Test2.java	    public void run( )
+run( )	/Users/jth3000/css430/ThreadOS/Test2b.java	    public void run( )
+run( )	/Users/jth3000/css430/ThreadOS/Test5.java	    public void run( )
+run( )	/Users/jth3000/css430/ThreadOS/Test6.java	    public void run( )
+run( )	/Users/jth3000/css430/ThreadOS/TestThread2.java	    public void run( )
+run( )	/Users/jth3000/css430/ThreadOS/TestThread2b.java	    public void run( )
+run( )	/Users/jth3000/css430/examples/boundedbuffer/ProducerConsumer.java		public void run( )
+run( )	/Users/jth3000/css430/examples/boundedbuffer/ProducerConsumer.java		public void run( )
+run( )	/Users/jth3000/css430/examples/threads/ThreadFunc.java	  public void run( )
+run()	/Users/jth3000/css430/ThreadOS/HelloWorld.java	  public void run()
+run()	/Users/jth3000/css430/ThreadOS/MyShell.java	  public void run()
+run()	/Users/jth3000/css430/ThreadOS/TestPingPong.java	    public void run()
+run()	/Users/jth3000/css430/ThreadOS/TestThread1.java	   public void run()
+run()	/Users/jth3000/css430/examples/threads/Consumer.java	  public void run()
+run()	/Users/jth3000/css430/examples/threads/Producer.java	  public void run()
+scheduler	/Users/jth3000/css430/ThreadOS/Kernel.java	    private static Scheduler scheduler;
+schedulerSleep( )	/Users/jth3000/css430/ThreadOS/Scheduler.java	    private void schedulerSleep( )
+seek( )	/Users/jth3000/css430/ThreadOS/Disk.java	    private void seek( )
+seekPtr	/Users/jth3000/css430/ThreadOS/FileTableEntry.java	    public int seekPtr;
+send(E item)	/Users/jth3000/css430/examples/threads/Channel.java	  public void send(E item)
+send(E item)	/Users/jth3000/css430/examples/threads/MessageQueue.java	  public void send(E item)
+short2bytes( short s, byte[] b, int offset )	/Users/jth3000/css430/ThreadOS/SysLib.java	    public static void short2bytes( short s, byte[] b, int offset )
+sleep( int milliseconds )	/Users/jth3000/css430/ThreadOS/SysLib.java	    public static int sleep( int milliseconds )
+sleepThread( int milliseconds )	/Users/jth3000/css430/ThreadOS/Scheduler.java	    public void sleepThread( int milliseconds )
+sleepTime	/Users/jth3000/css430/ThreadOS/TCB.java	    private int sleepTime =
+submissionTime	/Users/jth3000/css430/ThreadOS/TestThread2.java	    private long submissionTime;
+submissionTime	/Users/jth3000/css430/ThreadOS/TestThread2b.java	    private long submissionTime;
+sync( )	/Users/jth3000/css430/ThreadOS/SysLib.java	    public static int sync( )
+sysExec( String args[] )	/Users/jth3000/css430/ThreadOS/Kernel.java	    private static int sysExec( String args[] )
+targetBlockId	/Users/jth3000/css430/ThreadOS/Disk.java	    private int targetBlockId;
+terminated	/Users/jth3000/css430/ThreadOS/TCB.java	    private boolean terminated =
+test1( )	/Users/jth3000/css430/ThreadOS/Test5.java	    private boolean test1( )
+test10( )	/Users/jth3000/css430/ThreadOS/Test5.java	    private boolean test10( )
+test11( )	/Users/jth3000/css430/ThreadOS/Test5.java	    private boolean test11( )
+test12( )	/Users/jth3000/css430/ThreadOS/Test5.java	    private boolean test12( )
+test13( )	/Users/jth3000/css430/ThreadOS/Test5.java	    private boolean test13( )
+test14( )	/Users/jth3000/css430/ThreadOS/Test5.java	    private boolean test14( )
+test15( )	/Users/jth3000/css430/ThreadOS/Test5.java	    private boolean test15( )
+test16( )	/Users/jth3000/css430/ThreadOS/Test5.java	    private boolean test16( )
+test17( )	/Users/jth3000/css430/ThreadOS/Test5.java	    private boolean test17( )
+test18( )	/Users/jth3000/css430/ThreadOS/Test5.java	    private boolean test18( )
+test2( )	/Users/jth3000/css430/ThreadOS/Test5.java	    private boolean test2( )
+test3( )	/Users/jth3000/css430/ThreadOS/Test5.java	    private boolean test3( )
+test4( )	/Users/jth3000/css430/ThreadOS/Test5.java	    private boolean test4( )
+test5( )	/Users/jth3000/css430/ThreadOS/Test5.java	    private boolean test5( )
+test6( )	/Users/jth3000/css430/ThreadOS/Test5.java	    private boolean test6( )
+test7( )	/Users/jth3000/css430/ThreadOS/Test5.java	    private boolean test7( )
+test8( )	/Users/jth3000/css430/ThreadOS/Test5.java	    private boolean test8( )
+test9( )	/Users/jth3000/css430/ThreadOS/Test5.java	    private boolean test9( )
+that	/Users/jth3000/css430/examples/threads/Factory.java	class that
+thread	/Users/jth3000/css430/ThreadOS/TCB.java	    private Thread thread =
+tid	/Users/jth3000/css430/ThreadOS/TCB.java	    private int tid =
+timeSlice	/Users/jth3000/css430/ThreadOS/Scheduler.java	    private int timeSlice;
+waitQueue	/Users/jth3000/css430/ThreadOS/Kernel.java	    private static SyncQueue waitQueue;
+word	/Users/jth3000/css430/ThreadOS/PingPong.java	  private String word;

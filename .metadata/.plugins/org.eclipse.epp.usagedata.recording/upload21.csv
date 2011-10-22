@@ -1,0 +1,26 @@
+what,kind,bundleId,bundleVersion,description,time
+java.vendor,sysinfo,,,"Apple Inc.",1319230206725
+java.version,sysinfo,,,"1.6.0_26",1319230206725
+java.vm.info,sysinfo,,,"mixed mode",1319230206725
+java.vm.name,sysinfo,,,"Java HotSpot(TM) 64-Bit Server VM",1319230206725
+java.vm.specification.name,sysinfo,,,"Java Virtual Machine Specification",1319230206725
+java.vm.specification.vendor,sysinfo,,,"Sun Microsystems Inc.",1319230206725
+java.vm.specification.version,sysinfo,,,"1.0",1319230206725
+java.vm.vendor,sysinfo,,,"Apple Inc.",1319230206725
+java.vm.version,sysinfo,,,"20.1-b02-384",1319230206725
+activated,view,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.PackageExplorer",1319230209850
+activated,editor,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1319230247033
+started,bundle,org.eclipse.compare,3.5.0.I20090514-0808,"org.eclipse.compare",1319230247466
+started,bundle,net.sf.jautodoc,1.5.0,"net.sf.jautodoc",1319230253164
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1319230253231
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1319230253746
+executed,command,net.sf.jautodoc,1.5.0,"net.sf.jautodoc.commands.AddJavadoc",1319230253753
+executed,command,org.eclipse.ui,3.5.1.M20090902-1000,"org.eclipse.ui.edit.selectAll",1319230263159
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1319230276499
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1319230278286
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1319230278370
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1319230278836
+executed,command,net.sf.jautodoc,1.5.0,"net.sf.jautodoc.commands.AddJavadocDlg",1319230278845
+executed,command,org.eclipse.ui,3.5.1.M20090902-1000,"org.eclipse.ui.file.save",1319230290987
+error,log,,,"JavaBuilder handling CoreException",1319230291138
+activated,view,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.PackageExplorer",1319230301562

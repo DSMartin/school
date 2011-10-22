@@ -1,0 +1,26 @@
+what,kind,bundleId,bundleVersion,description,time
+java.vendor,sysinfo,,,"Apple Inc.",1319229993492
+java.version,sysinfo,,,"1.6.0_26",1319229993492
+java.vm.info,sysinfo,,,"mixed mode",1319229993492
+java.vm.name,sysinfo,,,"Java HotSpot(TM) 64-Bit Server VM",1319229993492
+java.vm.specification.name,sysinfo,,,"Java Virtual Machine Specification",1319229993492
+java.vm.specification.vendor,sysinfo,,,"Sun Microsystems Inc.",1319229993492
+java.vm.specification.version,sysinfo,,,"1.0",1319229993492
+java.vm.vendor,sysinfo,,,"Apple Inc.",1319229993492
+java.vm.version,sysinfo,,,"20.1-b02-384",1319229993492
+activated,view,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.PackageExplorer",1319229994285
+started,bundle,PathTools,1.0.36,"PathTools",1319230008860
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1319230010085
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1319230043498
+executed,command,org.eclipse.ui,3.5.1.M20090902-1000,"org.eclipse.ui.file.properties",1319230043541
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1319230046757
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1319230105699
+executed,command,org.eclipse.ui,3.5.1.M20090902-1000,"org.eclipse.ui.file.refresh",1319230110113
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1319230127271
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1319230127378
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1319230127600
+started,bundle,org.eclipse.ui.externaltools,3.2.0.v20090504,"org.eclipse.ui.externaltools",1319230143557
+started,bundle,org.eclipse.debug.ui,3.5.1.v20090811_r351,"org.eclipse.debug.ui",1319230143597
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1319230145856
+started,bundle,org.eclipse.jdt.debug,3.5.0.v20090526,"org.eclipse.jdt.debug",1319230146492
+started,bundle,org.eclipse.jdt.debug.ui,3.4.1.v20090811_r351,"org.eclipse.jdt.debug.ui",1319230146529

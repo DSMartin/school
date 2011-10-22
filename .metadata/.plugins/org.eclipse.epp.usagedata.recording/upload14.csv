@@ -1,0 +1,26 @@
+what,kind,bundleId,bundleVersion,description,time
+started,bundle,org.eclipse.mylyn.bugzilla.core,3.3.0.v20091015-0500-e3x,"org.eclipse.mylyn.bugzilla.core",1319229993468
+started,bundle,org.eclipse.mylyn.bugzilla.ui,3.3.0.v20091015-0500-e3x,"org.eclipse.mylyn.bugzilla.ui",1319229993469
+started,bundle,org.eclipse.mylyn.commons.net,3.3.0.v20091013-0200-e3x,"org.eclipse.mylyn.commons.net",1319229993469
+started,bundle,org.eclipse.mylyn.commons.ui,3.3.0.v20091015-0500-e3x,"org.eclipse.mylyn.commons.ui",1319229993469
+started,bundle,org.eclipse.mylyn.context.core,3.3.0.v20091015-0500-e3x,"org.eclipse.mylyn.context.core",1319229993470
+started,bundle,org.eclipse.mylyn.context.ui,3.3.0.v20091015-0500-e3x,"org.eclipse.mylyn.context.ui",1319229993470
+started,bundle,org.eclipse.mylyn.monitor.ui,3.3.0.v20091015-0500-e3x,"org.eclipse.mylyn.monitor.ui",1319229993471
+started,bundle,org.eclipse.mylyn.tasks.ui,3.3.0.v20091015-0500-e3x,"org.eclipse.mylyn.tasks.ui",1319229993472
+started,bundle,org.eclipse.mylyn.team.ui,3.3.0.v20091015-0500-e3x,"org.eclipse.mylyn.team.ui",1319229993472
+started,bundle,org.codehaus.groovy,1.7.0.xx-20091023-1300-e35,"org.codehaus.groovy",1319229993472
+started,bundle,org.eclipse.jdt.core,3.5.1.xx-20091023-1300-e35,"org.eclipse.jdt.core",1319229993473
+started,bundle,org.eclipse.jdt.groovy.core,1.0.0.xx-20091023-1300-e35,"org.eclipse.jdt.groovy.core",1319229993473
+started,bundle,com.atlassw.tools.eclipse.checkstyle,4.4.3,"com.atlassw.tools.eclipse.checkstyle",1319229993487
+started,bundle,net.sf.eclipsecs.core,5.0.3.200911042225,"net.sf.eclipsecs.core",1319229993488
+started,bundle,net.sf.eclipsecs.ui,5.0.3.200911042225,"net.sf.eclipsecs.ui",1319229993489
+os,sysinfo,,,"macosx",1319229993492
+arch,sysinfo,,,"x86_64",1319229993492
+ws,sysinfo,,,"cocoa",1319229993492
+locale,sysinfo,,,"en_US",1319229993492
+processors,sysinfo,,,"2",1319229993492
+java.runtime.name,sysinfo,,,"Java(TM) SE Runtime Environment",1319229993492
+java.runtime.version,sysinfo,,,"1.6.0_26-b03-384-10M3425",1319229993492
+java.specification.name,sysinfo,,,"Java Platform API Specification",1319229993492
+java.specification.vendor,sysinfo,,,"Sun Microsystems Inc.",1319229993492
+java.specification.version,sysinfo,,,"1.6",1319229993492
