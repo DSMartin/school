@@ -85,7 +85,7 @@ class MyShell extends Thread {
     // handle the case for no command (a space)
     boolean isEmpty = true;
     for (int i = idxCmdStart; i < idxCmdEnd; i++) {
-      if (!args[i].isEmpty()) {
+      if (!args[i].equals("")) {
         isEmpty = false;
         break;
       }
