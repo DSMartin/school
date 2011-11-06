@@ -1,0 +1,30 @@
+Script started on Sat Nov  5 10:27:06 2011
+bash-3.2$ java Boot
+threadOS ver 1.0:
+Type ? for help
+threadOS: a new thread (thread=Thread[Thread-4,2,main] tid=0 pid=-1)
+-->l Test2c
+l Test2c
+threadOS: a new thread (thread=Thread[Thread-7,2,main] tid=1 pid=0)
+42834: Thread[a]: submitted
+threadOS: a new thread (thread=Thread[Thread-9,2,main] tid=2 pid=1)
+42838: Thread[b]: submitted
+threadOS: a new thread (thread=Thread[Thread-11,2,main] tid=3 pid=1)
+42838: Thread[c]: submitted
+threadOS: a new thread (thread=Thread[Thread-13,2,main] tid=4 pid=1)
+42838: Thread[d]: submitted
+threadOS: a new thread (thread=Thread[Thread-15,2,main] tid=5 pid=1)
+42838: Thread[e]: submitted
+threadOS: a new thread (thread=Thread[Thread-17,2,main] tid=6 pid=1)
+46833: Thread[b]: response:  2995; wait:  2995; execution:  1000; turnaround:  3995
+49333: Thread[e]: response:  5995; wait:  5995; execution:   500; turnaround:  6495
+49835: Thread[c]: response:  3995; wait:  3997; execution:  3000; turnaround:  6997
+49836: Thread[a]: response:  1999; wait:  2002; execution:  5000; turnaround:  7002
+53837: Thread[d]: response:  4995; wait:  4999; execution:  6000; turnaround: 10999
+Test2c finished; total time = 11005
+-->q
+q
+Superblock synchronized
+bash-3.2$ exit
+
+Script done on Sat Nov  5 10:29:08 2011

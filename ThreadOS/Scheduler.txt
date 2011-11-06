@@ -1,0 +1,98 @@
+1.  What changes did you observe between Test2d on the distribution scheduler  
+    and using Scheduler_1.java (RR with suspend and resume)?
+
+    The total times are shown below for Scheduler_0 in milliseconds:
+    
+                Thread a    Thread b   Thread c   Thread d   Thread e
+    Response        1792        2789       3791       4792       5794
+    Wait              99          18         58        128          9
+    Execution       5000        1000       3000       6000        500
+    Turnaround      6893        3809       6851      10923       6305
+
+    The total times are shown below for Scheduler_1 in milliseconds:
+
+                Thread a    Thread b   Thread c   Thread d   Thread e
+    Response        1997        2994       3995       4997       5999
+    Wait           19089          17      10075      20103          8
+    Execution       5000        1000       3000       6000        500
+    Turnaround     29076       10008      21054      33081       6509
+    
+    Analysis:
+    The wait times are similarly short for threads that execute in the time quantum.
+    The overall wait times for Java priority queueing are very short for all threads
+    compared to the round robin scheduling effectively raise the overall wait time
+    to three times the execution time for burst times greater than the time quantum. 
+    This tells me that Java priority scheduling is much more efficient.
+    The response time is approximately twice that of threads whose CPU burst time is 
+    half the time quantum compared to threads whose CPU bursts is equal to the 
+    time quantum (Thread b CPU burst = time quantum, Thread e CPU burst = 1/2 time
+    quantum.)
+    The turnaround time has increased roughly 3 - 4 times with round robin queueing
+    compared to Java priority queueing, with the exception of Thread e with the 
+    shortest CPU burst time of 500 ms.
+
+2.  Describe the changes you made to the modified scheduler (Scheduler_1.java) 
+    in order to implement the multi-level feedback queue (Scheduler_2.java).
+    
+    I made the following changes to the scheduler to implement the multi-level
+    feedback queue:
+      a.  Created three queues for assigning TCB objects. 
+      b.  Changed the addThread method to always add a new TCB to the tail of the 
+          first queue.
+      c.  Added three private methods processQ0, processQ1, and processQ2 for
+          modularity.
+      d.  Called processQ2 from the run method. In turn processQ2 checks for higher
+          priority TCBs and calls processQ1 if there are any. In turn processQ1
+          calls processQ0 if there is a TCB waiting in Q0.
+      e.  As specified, changed the time quantum for each queue. Q0 executes threads
+          in timeSlice / 2.  Q1 executes threads in timeSlice, but in two slices, 
+          checking for higher priority TCBs at timeSlice / 2.  Q2 executes
+          threads in 2 times timeSlice, and similarly as Q1 checks for higher
+          priority TCBs at timeSlice / 2 before executing the remaining portion of
+          its timeSlice.
+      f.  Modified getMyTcb to search through each queue.
+  
+3.  Compare test results between Part 1 and Part 2. Discuss whether / how / why 
+    your multi-level feedback queue scheduler has performed better/worse than 
+    your round- robin scheduler. THIS IS IMPORTANT. [Because CSS430 is not a 
+    programming course. :-)] 
+
+    The total times are shown below for Scheduler_1 in milliseconds:
+
+                Thread a    Thread b   Thread c   Thread d   Thread e
+    Response        1997        2994       3995       4997       5999
+    Wait           19089          17      10075      20103          8
+    Execution       5000        1000       3000       6000        500
+    Turnaround     29076       10008      21054      33081       6509
+    
+    The total times are shown below for Scheduler_2 in milliseconds:
+
+                Thread a    Thread b   Thread c   Thread d   Thread e
+    Response         493         991       1491       1994       2496
+    Wait           19113        4516      13075      25122       7518
+    Execution       5000        1000       3000       6000        500
+    Turnaround     24113        5516      16075      31122       8018
+    
+    Analysis:
+    Overall, the total completion time for all threads has very slightly
+    decreased. The threads with the lowest burst times, Thread b and Thread e, 
+    have better response times and shorter wait times, the multi-level feedback
+    queue performs slightly better. Since the burst time for Thread b matches 
+    the average quantum time for the three queues, it has seen the best efficiency
+    gain in turnaround time.
+    
+4.  Describe what would happen if you were to implement Q2 based on FCFS rather
+    than Round Robin. [Your discussion may focus on what would happen if you 
+    were to run Test2c and/or Test2d in a FCFS-based Q2.] 
+    
+    The thread burst times for threads a, c, and d are longer than the Q2 time
+    quantum of 2 seconds (5 seconds, 3 seconds and 6 seconds respectively.) 
+    Threads b and e should not be impacted by the Q2 change since they will get
+    priority every half of Q2's timeSlice.  Since order of completion (based on
+    submission) in Q2 will be guaranteed in a FCFS algorithm, I would expect to 
+    see thread a complete before thread c and thread c before thread d. There 
+    would be an overall penalty on system turnaround since thread c with lower 
+    CPU burst times would have to wait for thread a.
+    
+    
+    
