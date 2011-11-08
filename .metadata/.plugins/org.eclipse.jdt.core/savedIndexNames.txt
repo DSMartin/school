@@ -1,1 +1,0 @@
-INDEX VERSION 1.126+/Users/jth3000/css430/.metadata/.plugins/org.eclipse.jdt.core
