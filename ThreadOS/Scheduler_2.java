@@ -99,7 +99,7 @@ public class Scheduler extends Thread
       		current = currentTCB.getThread( );
           if (current != null) {
           	if (current.isAlive())
-          		current.resume();//current.setPriority( 4 );
+          		current.resume();
           	else {
           		// Spawn must be controlled by Scheduler
           		// Scheduler must start a new thread
@@ -148,7 +148,7 @@ public class Scheduler extends Thread
       		current = currentTCB.getThread( );
           if (current != null) {
             if (current.isAlive())
-          		current.resume();//current.setPriority( 4 );
+          		current.resume();
           	else {
           		// Spawn must be controlled by Scheduler
           		// Scheduler must start a new thread

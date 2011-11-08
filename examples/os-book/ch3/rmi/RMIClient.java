@@ -8,20 +8,20 @@
  * Copyright John Wiley & Sons - 2010.
  */
 
-import java.rmi.*;
+import java.rmi.Naming;
 
-public class RMIClient 
-{  
-  public static final String server = "127.0.0.1";
+public class RMIClient  {  
 
-  public static void main(String args[]) { 
+  public static final String IP_ADDRESS = "127.0.0.1";
+
+  public static void main( String args[] ) { 
     try {
-      String host = "rmi://" + server + "/RMIDateObject";
-      RemoteDate dateServer = (RemoteDate)Naming.lookup(host);
-      System.out.println(dateServer.getDate());
+      String host = "rmi://" + IP_ADDRESS + "/RMIDateObject";
+      RemoteDate dateServer = (RemoteDate)Naming.lookup( host );
+      System.out.println( dateServer.getDate() );
     }
-    catch (Exception e) {
-      System.err.println(e);
+    catch ( Exception e ) {
+      System.err.println( e );
     }
   }
 }

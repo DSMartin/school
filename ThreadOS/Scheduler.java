@@ -99,7 +99,7 @@ public class Scheduler extends Thread
       		current = currentTCB.getThread( );
           if (current != null) {
           	if (current.isAlive())
-          		current.resume();//current.setPriority( 4 );
+          		current.resume();
           	else {
           		// Spawn must be controlled by Scheduler
           		// Scheduler must start a new thread
@@ -148,25 +148,26 @@ public class Scheduler extends Thread
       		current = currentTCB.getThread( );
           if (current != null) {
             if (current.isAlive())
-          		current.resume();//current.setPriority( 4 );
+          		current.resume();
           	else {
           		// Spawn must be controlled by Scheduler
           		// Scheduler must start a new thread
           		current.start();
           	}
           }
+          
+          for (int napTime = 0; napTime < timeSlice * 2; 
+               napTime += timeSlice / 2) {
+            // Time slice for Q2 is timeSlice * 2
+            schedulerSleep( timeSlice / 2 );
+            // System.out.println("* * * Context Switch * * * ");
 
-          // Time slice for Q2 is timeSlice * 2
-          schedulerSleep( timeSlice );
-          // System.out.println("* * * Context Switch * * * ");
-      
-          // check again for higher priority threads
-          while (Q1.size() > 0 || Q0.size() > 0) {
-            // Call processQ1 in case there are higher priority threads
-            processQ1(current);
+            // check again for higher priority threads
+            while (Q1.size() > 0 || Q0.size() > 0) {
+              // Call processQ1 in case there are higher priority threads
+              processQ1(current);
+            }
           }
-      
-          schedulerSleep( timeSlice );
 
         	synchronized ( queues ) {
         	  if ( current != null && current.isAlive( ) )

@@ -8,27 +8,28 @@
  * Copyright John Wiley & Sons - 2010.
  */ 
 
-import java.net.*;
-import java.io.*;
+import java.util.Date;
+import java.net.Socket;
+import java.net.ServerSocket;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.PrintWriter;
 
 public class DateServer {
-
-  public static void main(String[] args) {
+  private static final int PORT = 6013;
+  public static void main( String[] args ) {
     try {
-      ServerSocket sock = new ServerSocket(6013);
-      // now listen for connections
-      while (true) {
-        Socket client = sock.accept();
-        // we have a connection
-        PrintWriter pout = new PrintWriter(client.getOutputStream(), true);
-        // write the Date to the socket
-        pout.println(new java.util.Date().toString());
-        // terminate the connection (date has been served)
-        client.close();
+      ServerSocket sock = new ServerSocket( PORT );
+      while ( true ) { // listen for connections
+        Socket client = sock.accept(); // we have a connection
+        OutputStream outStream = client.getOutputStream();
+        PrintWriter pw = new PrintWriter( outStream, true );
+        pw.println( new Date().toString() );
+        client.close(); // date served; terminate connection
       }
-    }
-    catch (IOException ioe) {
-        System.err.println(ioe);
+    } 
+    catch ( IOException e ) {
+      System.err.println( e );
     }
   }
 }

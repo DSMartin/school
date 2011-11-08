@@ -9,9 +9,9 @@
  */
 
 import java.util.Date;
-import java.rmi.*;
+import java.rmi.Remote;
+import java.rmi.RemoteException;
 
-public interface RemoteDate extends Remote
-{
-	public Date getDate() throws RemoteException;
+public interface RemoteDate extends Remote {
+  public Date getDate() throws RemoteException;
 }
