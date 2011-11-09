@@ -155,25 +155,26 @@ public class Scheduler extends Thread
           		current.start();
           	}
           }
-
-          // Time slice for Q2 is timeSlice * 2
-          schedulerSleep( timeSlice );
-          // System.out.println("* * * Context Switch * * * ");
-      
-          // check again for higher priority threads
-          while (Q1.size() > 0 || Q0.size() > 0) {
-            // Call processQ1 in case there are higher priority threads
-            processQ1(current);
+          for (int napTime = 0; napTime < timeSlice * 2; 
+            napTime += timeSlice / 2) {
+            // Time slice for Q2 is timeSlice * 2
+            schedulerSleep( timeSlice / 2 );
+            // System.out.println("* * * Context Switch * * * ");
+            // check again for higher priority threads
+            while (Q1.size() > 0 || Q0.size() > 0) {
+              // Call processQ1 in case there are higher priority threads
+              processQ1(current);
+            }
           }
       
           schedulerSleep( timeSlice );
 
-        	synchronized ( queues ) {
-        	  if ( current != null && current.isAlive( ) )
-        		  current.suspend();
-        	  Q2.remove( currentTCB ); // rotate this TCB to the end
-        	  Q2.add( currentTCB );
-      	  }
+          synchronized ( queues ) {
+            if ( current != null && current.isAlive( ) )
+              current.suspend();
+            Q2.remove( currentTCB ); // rotate this TCB to the end
+            Q2.add( currentTCB );
+          }
     	  }
   	  } catch ( NullPointerException e3 ) { };
 	  }
