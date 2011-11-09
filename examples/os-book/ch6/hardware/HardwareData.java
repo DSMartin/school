@@ -20,29 +20,29 @@
 
 public class HardwareData {
 
-	private boolean value = false;
-	
-	public HardwareData( boolean initialValue ) {
-		this.value = initialValue;
-	}
+  private boolean value = false;
+  
+  public HardwareData( boolean initialValue ) {
+    this.value = initialValue;
+  }
 
-	public boolean get() {
-		return value;
-	}
+  public boolean get() {
+    return value;
+  }
 
-	public void set( boolean newValue ) {
-		this.value = newValue;
-	}
+  public void set( boolean newValue ) {
+    this.value = newValue;
+  }
 
-	public boolean getAndSet( boolean newValue ) {
-		boolean oldValue = this.get();
-		this.set( newValue );
-		return oldValue;
-	}
-	
-	public void swap(HardwareData other) {
-		boolean temp = this.get();
-		this.set( other.get() );
-		other.set( temp );
-	}
+  public boolean getAndSet( boolean newValue ) {
+    boolean oldValue = this.get();
+    this.set( newValue );
+    return oldValue;
+  }
+  
+  public void swap(HardwareData other) {
+    boolean temp = this.get();
+    this.set( other.get() );
+    other.set( temp );
+  }
 }

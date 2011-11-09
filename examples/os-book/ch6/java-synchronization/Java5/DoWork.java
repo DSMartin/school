@@ -30,19 +30,20 @@ public class DoWork {
 
   // myNumber is the number of the thread that wishes to do some work
   public void doWork( int myNumber ) {
-    System.out.printf( "> Worker %d wants to work\n", myNumber );
+    System.out.printf( "> Worker %d wants to enter critical section\n", myNumber );
     lock.lock();
     try {
       // if it's not my turn, I'll wait until I'm signaled
       if ( myNumber != turn ) {
         System.out.printf( "- Worker %d will wait\n", myNumber );
         condVars[myNumber].await();
+        System.out.printf( "! Worker %d has been notified\n", myNumber );
       }
       // I've been signaled, will do some work for awhile
-      System.out.printf( "* Worker %d is working\n", myNumber );
+      System.out.printf( "* Worker %d IS IN CRITICAL SECTION\n", myNumber );     
       SleepUtilities.nap();
       // I'm done; I'll signal that it's the next worker's turn
-      System.out.printf( "< Worker %d is resting\n", myNumber );
+      System.out.printf( "< Worker %d is exiting critical section\n", myNumber );     
       turn = (turn + 1) % 5;
       condVars[turn].signal();
     }

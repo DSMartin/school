@@ -9,11 +9,11 @@
  */
 
 
-import java.util.*;
+import java.util.Date;
 
 public class Producer implements Runnable {
 
-  private  Buffer<Date> buffer;
+  private Buffer<Date> buffer;
   
   public Producer( Buffer<Date> buffer ) {
     this.buffer = buffer;
@@ -22,12 +22,12 @@ public class Producer implements Runnable {
   public void run() {
     Date message;
     while ( true ) {
-      System.out.println( "Producer napping" );
       SleepUtilities.nap();
       // produce an item & enter it into the buffer
       message = new Date();      
-      System.out.println( "Producer produced " + message );
+      System.out.printf( "> Producer wants to insert\n" );
       buffer.insert( message );
+      System.out.printf( "< Producer has inserted\n" );
     }
   }
 }

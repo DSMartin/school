@@ -11,7 +11,7 @@ public class SwapFactory {
     for ( int i = 0; i < 5; i++ ) {
       worker[i] = new Thread( 
                     new Worker2( 
-                      String.format( "worker %d", i ), 
+                      String.format( "Worker %d", i ), 
                       lock ) );
       worker[i].start();
     }

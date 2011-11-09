@@ -20,7 +20,9 @@ public class SemaphoreFactory {
     for ( int i = 0; i < 5; i++ )
       bee[i] = 
         new Thread(
-          new Worker( String.format( "worker %d", i), sem ) );
+          new Worker( 
+            String.format( "Worker %d", i), 
+            sem ) );
     for ( int i = 0; i < 5; i++ )
       bee[i].start();
   }

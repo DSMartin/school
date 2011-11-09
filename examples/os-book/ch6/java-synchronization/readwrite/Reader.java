@@ -13,23 +13,25 @@
 
 public class Reader implements Runnable {
   
+  private String name;
   private ReadWriteLock db;
-  private int readerNum;
   
-  public Reader( int readerNum, ReadWriteLock db ) {
-    this.readerNum = readerNum;
+  public Reader( String name, ReadWriteLock db ) {
+    this.name = name;
     this.db = db;
   }
   
   public void run() {
     while ( true ) {
       SleepUtilities.nap();
-      System.out.printf( "Reader %d wants to read.\n", readerNum);
-      db.acquireReadLock( readerNum );
+      System.out.printf( "> %s wants to read\n", name );
+      db.acquireReadLock();
+      System.out.printf( "+ %s is READING\n", name );
       // you have access to read from the database
       // let's read for awhile .....
       SleepUtilities.nap();
-      db.releaseReadLock( readerNum );
+      System.out.printf( "< %s has read\n", name );
+      db.releaseReadLock();
     }
   }
 }

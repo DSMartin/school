@@ -10,45 +10,47 @@
 
 public class Worker1 implements Runnable {
 
-	private String name; 		// the name of this thread
-	private HardwareData mutex;		// shared mutex
-	
-	public Worker1( String name, HardwareData mutex ) {
-		this.name = name;
-		this.mutex = mutex;
-	}
-	
-	/**
-	 * This run() method tests the getAndSet() instruction
-	 */
-	public void run() {
-		while ( true ) {
-			System.out.println( name + " wants to enter CS" );
-			while ( mutex.getAndSet( true ) )
-				Thread.yield(); // let someone else get some work done
-			System.out.println( name + " is in critical section" );			
-			MutualExclusionUtilities.criticalSection( name );
-			System.out.println( name + " is out of critical section" );			
-			mutex.set( false );
-			MutualExclusionUtilities.remainderSection( name );
-		}
-	}
-	
-	/**
-	 * This run() method tests the swap() instruction
+  private String name;    // the name of this thread
+  private HardwareData mutex;   // shared mutex
+  
+  public Worker1( String name, HardwareData mutex ) {
+    this.name = name;
+    this.mutex = mutex;
+  }
+  
+  /**
+   * This run() method tests the getAndSet() instruction
+   */
+  public void run() {
+    while ( true ) {
+      System.out.printf( "> %s wants to enter critical section\n", name );
+      while ( mutex.getAndSet( true ) )
+        Thread.yield(); // let someone else get some work done
+      System.out.printf( "* %s IS IN CRITICAL SECTION\n", name );     
+      MutualExclusionUtilities.criticalSection( name );
+      System.out.printf( "< %s is exiting critical section\n", name );     
+      mutex.set( false );
+      MutualExclusionUtilities.remainderSection( name );
+    }
+  }
+  
+  /**
+   * This run() method tests the swap() instruction
 	public void run() {
 		key = new HardwareData( true );
 		while ( true ) {
-			System.out.println( name + " wants to enter CS" );
+      System.out.printf( "> %s wants to enter critical section\n", name );
 			key.set( true );
 			do {
+        // JFM: there is a problem lurking here
 				mutex.swap( key );
 			}	while( key.get() == true );
+      System.out.printf( "* %s IS IN CRITICAL SECTION\n", name );     
 			MutualExclusionUtilities.criticalSection( name );
-			System.out.println( name + " is out of critical section" );			
+      System.out.printf( "< %s is exiting critical section\n", name );     
 			mutex.set( false );
 			MutualExclusionUtilities.nonCriticalSection( name );
 		}
 	}
-	 */	
+   */ 
 }
