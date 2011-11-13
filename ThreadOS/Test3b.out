@@ -1,10 +1,6 @@
-Script started on Sun 13 Nov 2011 02:04:47 PM PST
-]0;hildj@uw1-320-21:~/ThreadOS[hildj@uw1-320-21 ThreadOS]$ cp Kernel_1.java Kernel.java
-]0;hildj@uw1-320-21:~/ThreadOS[hildj@uw1-320-21 ThreadOS]$ javac Keren[K[Knel.java
-Note: Kernel.java uses unchecked or unsafe operations.
-Note: Recompile with -Xlint:unchecked for details.
+Script started on Sun 13 Nov 2011 02:47:39 PM PST
 ]0;hildj@uw1-320-21:~/ThreadOS[hildj@uw1-320-21 ThreadOS]$ javac Test3.java
-]0;hildj@uw1-320-21:~/ThreadOS[hildj@uw1-320-21 ThreadOS]$ javac TestThread3a.java
+]0;hildj@uw1-320-21:~/ThreadOS[hildj@uw1-320-21 ThreadOS]$ javac Test3[KThread3a.java
 ]0;hildj@uw1-320-21:~/ThreadOS[hildj@uw1-320-21 ThreadOS]$ javac TestThread3b.java
 ]0;hildj@uw1-320-21:~/ThreadOS[hildj@uw1-320-21 ThreadOS]$ java Boot
 threadOS ver 1.0:
@@ -19,16 +15,16 @@ threadOS: a new thread (thread=Thread[Thread-11,2,main] tid=4 pid=1)
 threadOS: a new thread (thread=Thread[Thread-13,2,main] tid=5 pid=1)
 threadOS: a new thread (thread=Thread[Thread-15,2,main] tid=6 pid=1)
 threadOS: a new thread (thread=Thread[Thread-17,2,main] tid=7 pid=1)
-TestThread3a finished...
-TestThread3a finished...
-TestThread3a finished...
-TestThread3b finished...
-TestThread3b finished...
-TestThread3b finished...
-elapsed time = 191574 msec.
+TestThread3a finished in 96991 msec.
+TestThread3a finished in 102345 msec.
+TestThread3a finished in 98724 msec.
+TestThread3b finished in 191752 msec.
+TestThread3b finished in 202838 msec.
+TestThread3b finished in 201360 msec.
+elapsed time = 206373 msec.
 -->q
 q
-]0;hildj@uw1-320-21:~/ThreadOS[hildj@uw1-320-21 ThreadOS]$ cp Kere[Knel_2.java Kernel.java 
+]0;hildj@uw1-320-21:~/ThreadOS[hildj@uw1-320-21 ThreadOS]$ cp Kernel_2.java Kernel.java
 ]0;hildj@uw1-320-21:~/ThreadOS[hildj@uw1-320-21 ThreadOS]$ javac Kernel.java
 Note: Kernel.java uses unchecked or unsafe operations.
 Note: Recompile with -Xlint:unchecked for details.
@@ -45,15 +41,15 @@ threadOS: a new thread (thread=Thread[Thread-11,2,main] tid=4 pid=1)
 threadOS: a new thread (thread=Thread[Thread-13,2,main] tid=5 pid=1)
 threadOS: a new thread (thread=Thread[Thread-15,2,main] tid=6 pid=1)
 threadOS: a new thread (thread=Thread[Thread-17,2,main] tid=7 pid=1)
-TestThread3a finished...
-TestThread3b finished...
-TestThread3a finished...
-TestThread3a finished...
-TestThread3b finished...
-TestThread3b finished...
-elapsed time = 169179 msec.
+TestThread3a finished in 46080 msec.
+TestThread3b finished in 94296 msec.
+TestThread3a finished in 94824 msec.
+TestThread3a finished in 105443 msec.
+TestThread3b finished in 110941 msec.
+TestThread3b finished in 129637 msec.
+elapsed time = 136649 msec.
 -->q
 q
 ]0;hildj@uw1-320-21:~/ThreadOS[hildj@uw1-320-21 ThreadOS]$ exit
 
-Script done on Sun 13 Nov 2011 02:12:46 PM PST
+Script done on Sun 13 Nov 2011 02:54:52 PM PST

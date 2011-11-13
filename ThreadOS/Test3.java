@@ -14,9 +14,9 @@ class Test3 extends Thread {
   }
   
   public void run() {
+    long startTime = new Date().getTime();
     String[] strArray1 = SysLib.stringToArgs("TestThread3a");
     String[] strArray2 = SysLib.stringToArgs("TestThread3b");
-    long startTime = new Date().getTime();
     for (int i = 0; i < pairs; i++) {
       SysLib.exec(strArray1);
       SysLib.exec(strArray2);
