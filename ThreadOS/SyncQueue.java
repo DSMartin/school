@@ -13,8 +13,6 @@ public class SyncQueue {
   // number of condition/event types (default number is 10)
   private static final int COND_MAX = 10;
   
-  private static final int NO_PID = -1;
-  
   // constructor that creates a queue and allows threads to wait for a condMax
   // number of condition/event types
   public SyncQueue(int condMax) {
@@ -35,7 +33,8 @@ public class SyncQueue {
     if ((condition >=0) && (condition < queue.length)) {
       return queue[condition].sleep();
     }
-    return NO_PID;
+    // return top-most parent pid
+    return -1;
   }
   
   // dequeues and wakes up a thread waiting for a given condition. If there

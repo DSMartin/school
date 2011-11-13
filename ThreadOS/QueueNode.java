@@ -7,26 +7,26 @@
 import java.util.Vector;
 
 public class QueueNode {
-  private Vector pidQueue;
+  private Vector queue;
   
   //constructor
   public QueueNode() {
-    pidQueue = new Vector<Integer>();
-    pidQueue.clear();
+    queue = new Vector<Integer>();
+    queue.clear();
   }
   
   // sleep until notified and return pid from queue
   public synchronized int sleep() {
-    if (pidQueue.size() == 0)
+    if (queue.size() == 0)
       try {
         wait();
       } catch (InterruptedException iex) {}
-      return (Integer)pidQueue.remove(0);
+      return (Integer)queue.remove(0);
   }
   
   // wakeup a thread
   public synchronized void wakeup(int pid) {
-    pidQueue.add(pid);
+    queue.add(pid);
     notify();
   }
 }

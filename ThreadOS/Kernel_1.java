@@ -116,19 +116,9 @@ public class Kernel
 		return OK;
 	    case RAWREAD: // read a block of data from disk
 		while ( disk.read( param, ( byte[] )args ) == false )
-			while ( disk.read( param, ( byte[] )args ) == false )
   		    ; // busy wait
-  		while ( disk.testAndResetReady( ) == false )
+  	while ( disk.testAndResetReady( ) == false )
   		    ; // busy wait
-    //   // condition 1 is used to represent the case when a thread is waiting
-    //   // for the disk to accept a request.
-    //   ioQueue.enqueueAndSleep( COND_DISK_REQ ); // relinquish CPU to another ready thread
-    // while ( disk.testAndResetReady( ) == false )
-    //   // condition 2 represents the case when a thread is waiting for the
-    //   // disk to complete a service, (i.e., waiting for the buffer[] array
-    //   // to be read or written.)
-    //   ioQueue.enqueueAndSleep( COND_DISK_FIN ); // relinquish CPU to another ready thread
-    // // now you can access data in buffer
 		return OK;
 	    case RAWWRITE: // write a block of data to disk
 		while ( disk.write( param, ( byte[] )args ) == false )
