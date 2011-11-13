@@ -87,48 +87,22 @@ public class Kernel
 		return sysExec( ( String[] )args );
 	    case WAIT:
 		// get the current thread id
-		if ((myTcb = scheduler.getMyTcb()) != null) {
-		  int tid = myTcb.getTid();
-		  // let the current thread sleep in waitQueue under the 
-  		// condition = this thread id
-		  return waitQueue.enqueueAndSleep(tid);
-		}
-		return ERROR;
-		
+		// let the current thread sleep in waitQueue under the 
+		// condition = this thread id
+		return OK; // return a child thread id who woke me up
 	    case EXIT:
 		// get the current thread's parent id
-		if ((myTcb = scheduler.getMyTcb()) != null) {
-		  int pid = myTcb.getPid();
-		  int tid = myTcb.getTid();
-		  if (pid != -1) {
-		    // search waitQueue for and wakes up the thread under the
-    		// condition = the current thread's parent id
-		    waitQueue.dequeueAndWakeup(pid, tid);
-		    // tell the Scheduler to delete the current thread (since it is exiting)
-		    scheduler.deleteThread();
-		    return OK;
-		  }
-		}
-		return ERROR;
-		
+		// search waitQueue for and wakes up the thread under the
+		// condition = the current thread's parent id
+		return OK;
 	    case SLEEP:   // sleep a given period of milliseconds
 		scheduler.sleepThread( param ); // param = milliseconds
 		return OK;
 	    case RAWREAD: // read a block of data from disk
 		while ( disk.read( param, ( byte[] )args ) == false )
-			while ( disk.read( param, ( byte[] )args ) == false )
-  		    ; // busy wait
-  		while ( disk.testAndResetReady( ) == false )
-  		    ; // busy wait
-    //   // condition 1 is used to represent the case when a thread is waiting
-    //   // for the disk to accept a request.
-    //   ioQueue.enqueueAndSleep( COND_DISK_REQ ); // relinquish CPU to another ready thread
-    // while ( disk.testAndResetReady( ) == false )
-    //   // condition 2 represents the case when a thread is waiting for the
-    //   // disk to complete a service, (i.e., waiting for the buffer[] array
-    //   // to be read or written.)
-    //   ioQueue.enqueueAndSleep( COND_DISK_FIN ); // relinquish CPU to another ready thread
-    // // now you can access data in buffer
+		    ; // busy wait
+		while ( disk.testAndResetReady( ) == false )
+		    ; // busy wait
 		return OK;
 	    case RAWWRITE: // write a block of data to disk
 		while ( disk.write( param, ( byte[] )args ) == false )
@@ -207,11 +181,11 @@ public class Kernel
 	    }
 	    return ERROR;
 	case INTERRUPT_DISK: // Disk interrupts
-      //wake up the thread waiting for a service completion
-      ioQueue.dequeueAndWakeup( COND_DISK_FIN );
+	    // wake up the thread waiting for a service completion
+	    //ioQueue.dequeueAndWakeup( COND_DISK_FIN );
 
-      //wake up the thread waiting for a request acceptance
-      ioQueue.dequeueAndWakeup( COND_DISK_REQ );
+	    // wake up the thread waiting for a request acceptance
+	    //ioQueue.dequeueAndWakeup( COND_DISK_REQ );
 
 	    return OK;
 	case INTERRUPT_IO:   // other I/O interrupts (not implemented)
