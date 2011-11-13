@@ -11,6 +11,10 @@
  * Copyright John Wiley & Sons - 2010. 
  */
 
+// Using Java built-in Semaphore class
+// Semaphore.acquire() must be called within try / catch ( InterruptedException e )
+
+import java.util.concurrent.Semaphore;
 
 public class Database implements ReadWriteLock {
   // the number of active readers
@@ -25,35 +29,47 @@ public class Database implements ReadWriteLock {
     db = new Semaphore( 1 );
   }
   
-  public void acquireReadLock( int readerNum ) {
-    mutex.acquire();
+  public void acquireReadLock() {
+    try {
+      mutex.acquire();
+    }
+    catch ( InterruptedException e ) {
+    }
     ++readerCount;
-    // if I am the first reader tell all others
+    // if I am the first reader, tell all others
     // that the database is being read
     if ( readerCount == 1 )
-      db.acquire();
-    System.out.printf( "Reader %d is reading. Reader count = %d\n", readerNum, readerCount );
+      try {
+        db.acquire();
+      }
+      catch ( InterruptedException e ) {
+      }
     mutex.release();
   }
   
-  public void releaseReadLock( int readerNum ) {
-    mutex.acquire();
+  public void releaseReadLock() {
+    try {
+      mutex.acquire();
+    }
+    catch ( InterruptedException e ) {
+    }
     --readerCount;
-    // if I am the last reader tell all others
+    // if I am the last reader, tell all others
     // that the database is no longer being read
     if ( readerCount == 0 )
       db.release();    
-    System.out.printf( "Reader %d is done reading. Reader count = %d\n", readerNum, readerCount );
     mutex.release();
   }
   
-  public void acquireWriteLock( int writerNum ) {
-    db.acquire();
-    System.out.printf( "Writer %d is writing." );
+  public void acquireWriteLock() {
+    try {
+      db.acquire();
+    }
+    catch ( InterruptedException e ) {
+    }
   }
   
-  public void releaseWriteLock( int writerNum ) {
-    System.out.println( "Writer %d is done writing.");
+  public void releaseWriteLock() {
     db.release();
   }
 }

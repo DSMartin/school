@@ -11,23 +11,26 @@
  */
 
 public class Writer implements Runnable {
-  private ReadWriteLock server;
-  private int writerNum;
+
+  private String name;
+  private ReadWriteLock db;
   
-  public Writer( int w, ReadWriteLock db ) {
-    writerNum = w;
-    server = db;
+  public Writer( String name, ReadWriteLock db ) {
+    this.name = name;
+    this.db = db;
   }
   
   public void run() {
     while ( true ) {
       SleepUtilities.nap();
-      System.out.printf( "Writer %d wants to write.\n", writerNum );
-      server.acquireWriteLock(writerNum);
+      System.out.printf( "> %s wants to write\n", name );
+      db.acquireWriteLock();
+      System.out.printf( "* %s is WRITING\n", name );
       // you have access to write to the database
       // write for awhile ...
       SleepUtilities.nap();
-      server.releaseWriteLock( writerNum );
+      System.out.printf( "< %s has written\n", name );
+      db.releaseWriteLock();
     }
   }
 }

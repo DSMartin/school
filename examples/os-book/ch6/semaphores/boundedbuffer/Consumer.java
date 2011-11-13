@@ -11,20 +11,21 @@
 import java.util.*;
 
 public class Consumer implements Runnable {
-  private  Buffer<Date> buffer;
 
-  public Consumer(Buffer<Date> buffer) { 
+  private Buffer<Date> buffer;  // was <Date>
+
+  public Consumer( Buffer<Date> buffer ) { 
     this.buffer = buffer;
   }
    
   public void run() {
     Date message;
     while ( true ) {
-      System.out.println( "Consumer napping" );
-      SleepUtilities.nap(); 
+      SleepUtilities.nap();
       // consume an item from the buffer
-      System.out.println("Consumer wants to consume.");
+      System.out.printf( "> Consumer wants to consume\n" );
       message = buffer.remove();
+      System.out.printf( "< Consumer has consumed '%s'\n", message );
     }
   }   
 }

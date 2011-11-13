@@ -16,26 +16,29 @@
  */
 
 public class DoWork {
-	private int turn = 1;
+  private int turn = 1;
 
-	// myNumber is the number of the thread that wishes to do some work
-	public synchronized void doWork(int myNumber) {
-		while ( turn != myNumber ) {
-			try {
-				wait();
-			} catch (InterruptedException e) { 
-			}
-		}		
-		// do some work for awhile
-		System.out.printf( "Worker %d will do some work\n", myNumber );
-		SleepUtilities.nap();
-		
-		// ok, we're finished. Now indicate to the next waiting
-		// thread that it is their turn to do some work.
-		System.out.printf( "Worker %d is done working\n", myNumber );
-		
-		turn = (turn + 1) % 5;		
-		// change this to notifyAll() to see it run correctly!
-		notify();
-	}
+  // myNumber is the number of the thread that wishes to do some work
+  public synchronized void doWork( int myNumber ) {
+    System.out.printf( "> Worker %d wants to enter critical section\n", myNumber );
+    while ( turn != myNumber ) {
+      try {
+        System.out.printf( "- Worker %d will wait\n", myNumber );
+        wait();
+        System.out.printf( "! Worker %d has been notified\n", myNumber );
+      } catch (InterruptedException e) { 
+      }
+    }   
+    // do some work for awhile
+    System.out.printf( "* Worker %d IS IN CRITICAL SECTION\n", myNumber );     
+    SleepUtilities.nap();
+    
+    // ok, we're finished. Now indicate to the next waiting
+    // thread that it is their turn to do some work.
+    System.out.printf( "< Worker %d is exiting critical section\n", myNumber );     
+    
+    turn = (turn + 1) % 5;    
+    // change this to notifyAll() to see it run correctly!
+    notify();
+  }
 }

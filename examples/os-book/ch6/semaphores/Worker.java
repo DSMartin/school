@@ -24,10 +24,11 @@ public class Worker implements Runnable {
 
   public void run() {
     while ( true ) {
+      System.out.printf( "> %s wants to enter critical section\n", name );
       sem.acquire();
-      System.out.println( name + " is in critical section" );
+      System.out.printf( "* %s IS IN CRITICAL SECTION\n", name );     
       MutualExclusionUtilities.criticalSection( name );
-      System.out.println( name + " is out of critical section" );
+      System.out.printf( "< %s is exiting critical section\n", name );     
       sem.release();
       MutualExclusionUtilities.remainderSection( name );
     }

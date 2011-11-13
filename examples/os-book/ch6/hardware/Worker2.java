@@ -24,14 +24,15 @@ public class Worker2 implements Runnable {
   public void run() {
     HardwareData key = new HardwareData( true );
     while ( true ) {
-      System.out.println( name + " wants to enter CS" );
+      System.out.printf( "> %s wants to enter critical section\n", name );
       key.set( true );
       do {
         // JFM: there is a problem lurking here
         mutex.swap( key );
       } while( key.get() == true );
+      System.out.printf( "* %s IS IN CRITICAL SECTION\n", name );     
       MutualExclusionUtilities.criticalSection( name );
-      System.out.println( name + " is out of critical section" );     
+      System.out.printf( "< %s is exiting critical section\n", name );     
       mutex.set( false );
       MutualExclusionUtilities.remainderSection( name );
     }

@@ -19,41 +19,38 @@ import java.util.*;
 
 public class BoundedBuffer<E> implements Buffer<E> {
   
-  private static final int   BUFFER_SIZE = 5;
+  private static final int BUFFER_SIZE = 1;   // was 5
   
   private Semaphore mutex;
   private Semaphore empty;
   private Semaphore full;
   
-  private int count;
-  private int in, out;
+  private int count;  // number of items in the buffer
+  private int in;     // index of next free position in the buffer (where to insert to)
+  private int out;    // index of next full position in the buffer (where to remove from)
   private E[] buffer;
   
   public BoundedBuffer() {
     // buffer is initially empty
-    count = 0;
-    in = 0;
-    out = 0;
-    
+    count  = 0;
+    in     = 0;
+    out    = 0;
     buffer = (E[]) new Object[BUFFER_SIZE];
-    
-    mutex = new Semaphore(1);
-    empty = new Semaphore(BUFFER_SIZE);
-    full = new Semaphore(0);
+    mutex  = new Semaphore( 1 );            // at most 1 thread can modify buffer at any time
+    full   = new Semaphore( 0 );            // no buffer cells are full (initially)
+    empty  = new Semaphore( BUFFER_SIZE );  // all buffer cells are empty (initially)
   }
   
   // producer calls this method
-  public void insert(E item) {
+  public void insert( E item ) {
     empty.acquire();
     mutex.acquire();
     // add an item to the buffer
-    ++count;
     buffer[in] = item;
     in = (in + 1) % BUFFER_SIZE;
-    if ( count == BUFFER_SIZE )
-      System.out.printf( "Producer produced %s; Buffer FULL\n" );
-    else
-      System.out.printf( "Producer produced %s; Buffer Size = %d\n", count );    
+    ++count;
+    System.out.printf( "* Producer INSERTING '%s'; Buffer Size = %d%s\n", 
+                       item, count, ( count == BUFFER_SIZE ? " (now FULL)" : "" ) );    
     mutex.release();
     full.release();
   }
@@ -63,13 +60,11 @@ public class BoundedBuffer<E> implements Buffer<E> {
     full.acquire();
     mutex.acquire();
     // remove an item from the buffer
-    --count;
     E item = buffer[out];
     out = (out + 1) % BUFFER_SIZE;
-    if ( count == 0 )
-      System.out.printf( "Consumer consumed %s; Buffer EMPTY\n" );
-    else
-      System.out.printf( "Consumer consumed %s; Buffer Size = %d\n", count );    
+    --count;
+    System.out.printf( "* Consumer REMOVING  '%s'; Buffer Size = %d%s\n", 
+                       item, count, ( count == 0 ? " (now EMPTY)" : "" ) );    
     mutex.release();
     empty.release();
     return item;

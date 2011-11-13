@@ -11,12 +11,13 @@
 import java.util.Date;
 
 public class Factory {
+
   public static void main(String args[]) {
-    Buffer<Date> server = new BoundedBuffer<Date>();
+    Buffer<Date> buffer = new BoundedBuffer<Date>();
     
     // now create the producer and consumer threads
-    Thread producerThread = new Thread(new Producer(server));
-    Thread consumerThread = new Thread(new Consumer(server));
+    Thread producerThread = new Thread( new Producer( buffer ) );
+    Thread consumerThread = new Thread( new Consumer( buffer ) );
     
     producerThread.start();
     consumerThread.start();               
