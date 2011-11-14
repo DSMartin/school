@@ -25,8 +25,8 @@ public class QueueNode {
   }
   
   // wakeup a thread
-  public synchronized void wakeup(int pid) {
-    queue.add(pid);
+  public synchronized void wakeup(int tid) {
+    queue.add(tid);
     notify();
   }
 }

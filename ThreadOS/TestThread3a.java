@@ -18,7 +18,7 @@ class TestThread3a extends Thread {
     SysLib.exit();
   }
   
-  // Towers of Hanoi problem
+  // Tower of Hanoi problem
   private static void move(int n, int startPole, int endPole) {
     if (n == 0) {
 			return; 
