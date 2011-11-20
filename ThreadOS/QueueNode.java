@@ -18,16 +18,21 @@ public class QueueNode {
   // sleep until notified if there are no waiting threads
   // return a tid that is waiting
   public synchronized int sleep() {
-    if (queue.size() == 0)
+    if (size() == 0)
       try {
         wait();
       } catch (InterruptedException iex) {}
-    return queue.remove(queue.size() - 1);
+    return queue.remove( size() - 1 );
   }
   
   // add tid to queue and notify
   public synchronized void wakeup(int tid) {
     queue.add(tid);
     notify();
+  }
+  
+  // getter for number of tids in queue
+  public synchronized int size() {
+    return queue.size();
   }
 }
