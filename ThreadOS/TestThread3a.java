@@ -20,13 +20,11 @@ class TestThread3a extends Thread {
   
   // Tower of Hanoi problem
   private static void move(int n, int startPole, int endPole) {
-    if (n == 0) {
-			return; 
-		}
-		int intermediatePole = 6 - startPole - endPole;
-		move(n-1, startPole, intermediatePole);
-		//System.out.println("Move " + n + " from " + startPole + " to " +endPole);
-		count++;
-		move(n-1, intermediatePole, endPole);
+    if (n == 0) return; 
+    int intermediatePole = 6 - startPole - endPole;
+    move(n-1, startPole, intermediatePole);
+    //System.out.println("Move " + n + " from " + startPole + " to " +endPole);
+    count++;
+    move(n-1, intermediatePole, endPole);
   }
 }

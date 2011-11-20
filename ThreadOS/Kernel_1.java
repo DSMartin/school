@@ -1,4 +1,3 @@
-import java.util.*;
 import java.lang.reflect.*;
 import java.io.*;
 
@@ -77,7 +76,7 @@ public class Kernel
 		disk.start( );
 
 		// instantiate a cache memory
-		cache = new Cache( disk.blockSize, 10 );
+		cache = new Cache( Disk.blockSize, 10 );
 
 		// instantiate synchronized queues
 		ioQueue = new SyncQueue( );
@@ -217,7 +216,7 @@ public class Kernel
 
 	try {
 	    //get the user thread class from its name
-	    Class thrClass = Class.forName( thrName ); 
+	    Class<?> thrClass = Class.forName( thrName ); 
 	    if ( args.length == 1 ) // no arguments
 		thrObj = thrClass.newInstance( ); // instantiate this class obj
 	    else {                  // some arguments
@@ -229,7 +228,7 @@ public class Kernel
 		Object[] constructorArgs = new Object[] { thrArgs };
 
 		// locate this class object's constructors
-		Constructor thrConst 
+		Constructor<?> thrConst 
 		    = thrClass.getConstructor( new Class[] {String[].class} );
 
 		// instantiate this class object by calling this constructor

@@ -7,7 +7,7 @@
 import java.util.Vector;
 
 public class QueueNode {
-  private Vector queue;
+  private Vector<Integer> queue;
   
   //constructor
   public QueueNode() {
@@ -15,16 +15,17 @@ public class QueueNode {
     queue.clear();
   }
   
-  // sleep until notified and return pid from queue
+  // sleep until notified if there are no waiting threads
+  // return a tid that is waiting
   public synchronized int sleep() {
     if (queue.size() == 0)
       try {
         wait();
       } catch (InterruptedException iex) {}
-      return (Integer)queue.remove(0);
+    return queue.remove(queue.size() - 1);
   }
   
-  // wakeup a thread
+  // add tid to queue and notify
   public synchronized void wakeup(int tid) {
     queue.add(tid);
     notify();

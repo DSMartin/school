@@ -1,13 +1,15 @@
-Script started on Sun 13 Nov 2011 02:47:39 PM PST
-]0;hildj@uw1-320-21:~/ThreadOS[hildj@uw1-320-21 ThreadOS]$ javac Test3.java
-]0;hildj@uw1-320-21:~/ThreadOS[hildj@uw1-320-21 ThreadOS]$ javac Test3[KThread3a.java
+Script started on Sat 19 Nov 2011 07:11:41 PM PST
+]0;hildj@uw1-320-21:~/ThreadOS[hildj@uw1-320-21 ThreadOS]$ cp Kernel_1.java Kernel.java
+]0;hildj@uw1-320-21:~/ThreadOS[hildj@uw1-320-21 ThreadOS]$ javac Kernel.java
+]0;hildj@uw1-320-21:~/ThreadOS[hildj@uw1-320-21 ThreadOS]$ javac Test3a.java
+]0;hildj@uw1-320-21:~/ThreadOS[hildj@uw1-320-21 ThreadOS]$ javac TestThread3a.java
 ]0;hildj@uw1-320-21:~/ThreadOS[hildj@uw1-320-21 ThreadOS]$ javac TestThread3b.java
 ]0;hildj@uw1-320-21:~/ThreadOS[hildj@uw1-320-21 ThreadOS]$ java Boot
 threadOS ver 1.0:
 Type ? for help
 threadOS: a new thread (thread=Thread[Thread-3,2,main] tid=0 pid=-1)
--->l Test3 3
-l Test3 3
+-->l Test3a 4
+l Test3a 4
 threadOS: a new thread (thread=Thread[Thread-5,2,main] tid=1 pid=0)
 threadOS: a new thread (thread=Thread[Thread-7,2,main] tid=2 pid=1)
 threadOS: a new thread (thread=Thread[Thread-9,2,main] tid=3 pid=1)
@@ -15,25 +17,27 @@ threadOS: a new thread (thread=Thread[Thread-11,2,main] tid=4 pid=1)
 threadOS: a new thread (thread=Thread[Thread-13,2,main] tid=5 pid=1)
 threadOS: a new thread (thread=Thread[Thread-15,2,main] tid=6 pid=1)
 threadOS: a new thread (thread=Thread[Thread-17,2,main] tid=7 pid=1)
-TestThread3a finished in 96991 msec.
-TestThread3a finished in 102345 msec.
-TestThread3a finished in 98724 msec.
-TestThread3b finished in 191752 msec.
-TestThread3b finished in 202838 msec.
-TestThread3b finished in 201360 msec.
-elapsed time = 206373 msec.
+threadOS: a new thread (thread=Thread[Thread-19,2,main] tid=8 pid=1)
+threadOS: a new thread (thread=Thread[Thread-21,2,main] tid=9 pid=1)
+TestThread3a finished in 41236 msec.
+TestThread3a finished in 66188 msec.
+TestThread3a finished in 73242 msec.
+TestThread3a finished in 77433 msec.
+TestThread3b finished in 214486 msec.
+TestThread3b finished in 228381 msec.
+TestThread3b finished in 229992 msec.
+TestThread3b finished in 228297 msec.
+elapsed time = 237360 msec.
 -->q
 q
 ]0;hildj@uw1-320-21:~/ThreadOS[hildj@uw1-320-21 ThreadOS]$ cp Kernel_2.java Kernel.java
 ]0;hildj@uw1-320-21:~/ThreadOS[hildj@uw1-320-21 ThreadOS]$ javac Kernel.java
-Note: Kernel.java uses unchecked or unsafe operations.
-Note: Recompile with -Xlint:unchecked for details.
 ]0;hildj@uw1-320-21:~/ThreadOS[hildj@uw1-320-21 ThreadOS]$ java Boot
 threadOS ver 1.0:
 Type ? for help
 threadOS: a new thread (thread=Thread[Thread-3,2,main] tid=0 pid=-1)
--->l Test3 3
-l Test3 3
+-->l Test3a 4
+l Test3a 4
 threadOS: a new thread (thread=Thread[Thread-5,2,main] tid=1 pid=0)
 threadOS: a new thread (thread=Thread[Thread-7,2,main] tid=2 pid=1)
 threadOS: a new thread (thread=Thread[Thread-9,2,main] tid=3 pid=1)
@@ -41,15 +45,19 @@ threadOS: a new thread (thread=Thread[Thread-11,2,main] tid=4 pid=1)
 threadOS: a new thread (thread=Thread[Thread-13,2,main] tid=5 pid=1)
 threadOS: a new thread (thread=Thread[Thread-15,2,main] tid=6 pid=1)
 threadOS: a new thread (thread=Thread[Thread-17,2,main] tid=7 pid=1)
-TestThread3a finished in 46080 msec.
-TestThread3b finished in 94296 msec.
-TestThread3a finished in 94824 msec.
-TestThread3a finished in 105443 msec.
-TestThread3b finished in 110941 msec.
-TestThread3b finished in 129637 msec.
-elapsed time = 136649 msec.
+threadOS: a new thread (thread=Thread[Thread-19,2,main] tid=8 pid=1)
+threadOS: a new thread (thread=Thread[Thread-21,2,main] tid=9 pid=1)
+TestThread3b finished in 51272 msec.
+TestThread3a finished in 54669 msec.
+TestThread3b finished in 94616 msec.
+TestThread3a finished in 100161 msec.
+TestThread3a finished in 134317 msec.
+TestThread3b finished in 136648 msec.
+TestThread3a finished in 142622 msec.
+TestThread3b finished in 177832 msec.
+elapsed time = 180837 msec.
 -->q
 q
 ]0;hildj@uw1-320-21:~/ThreadOS[hildj@uw1-320-21 ThreadOS]$ exit
 
-Script done on Sun 13 Nov 2011 02:54:52 PM PST
+Script done on Sat 19 Nov 2011 07:21:03 PM PST

@@ -1,12 +1,8 @@
-Script started on Sun 13 Nov 2011 02:36:38 PM PST
+Script started on Sat 19 Nov 2011 07:22:16 PM PST
 ]0;hildj@uw1-320-21:~/ThreadOS[hildj@uw1-320-21 ThreadOS]$ cp Kernel_1.java Kernel.java
 ]0;hildj@uw1-320-21:~/ThreadOS[hildj@uw1-320-21 ThreadOS]$ javac Kernel.java
-Note: Kernel.java uses unchecked or unsafe operations.
-Note: Recompile with -Xlint:unchecked for details.
 ]0;hildj@uw1-320-21:~/ThreadOS[hildj@uw1-320-21 ThreadOS]$ javac SyncQueue.java
 ]0;hildj@uw1-320-21:~/ThreadOS[hildj@uw1-320-21 ThreadOS]$ javac QueueNode.java
-Note: QueueNode.java uses unchecked or unsafe operations.
-Note: Recompile with -Xlint:unchecked for details.
 ]0;hildj@uw1-320-21:~/ThreadOS[hildj@uw1-320-21 ThreadOS]$ java Boot
 threadOS ver 1.0:
 Type ? for help
@@ -22,15 +18,15 @@ threadOS: a new thread (thread=Thread[Thread-11,2,main] tid=4 pid=2)
 threadOS: a new thread (thread=Thread[Thread-13,2,main] tid=5 pid=2)
 threadOS: a new thread (thread=Thread[Thread-15,2,main] tid=6 pid=2)
 threadOS: a new thread (thread=Thread[Thread-17,2,main] tid=7 pid=2)
-Thread[b]: response time = 4001 turnaround time = 5021 execution time = 1020
-Thread[e]: response time = 7008 turnaround time = 7517 execution time = 509
-Thread[c]: response time = 5003 turnaround time = 8063 execution time = 3060
-Thread[a]: response time = 2998 turnaround time = 8098 execution time = 5100
-Thread[d]: response time = 6006 turnaround time = 12125 execution time = 6119
+Thread[b]: response time = 4000 turnaround time = 5019 execution time = 1019
+Thread[e]: response time = 7004 turnaround time = 7514 execution time = 510
+Thread[c]: response time = 5001 turnaround time = 8060 execution time = 3059
+Thread[a]: response time = 2998 turnaround time = 8097 execution time = 5099
+Thread[d]: response time = 6002 turnaround time = 12122 execution time = 6120
 shell[2]% exit
 exit
 -->q
 q
 ]0;hildj@uw1-320-21:~/ThreadOS[hildj@uw1-320-21 ThreadOS]$ exit
 
-Script done on Sun 13 Nov 2011 02:38:26 PM PST
+Script done on Sat 19 Nov 2011 07:23:29 PM PST

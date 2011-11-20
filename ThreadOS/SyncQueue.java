@@ -44,7 +44,7 @@ public class SyncQueue {
   // is dequeued and resumed.
   public void dequeueAndWakeup(int condition) {
     if ((condition >= 0) && (condition < queue.length))
-      queue[condition].wakeup(0);
+      queue[condition].wakeup(queue.length - 1);
   }
   
   // the two parameter version of this function can receive the calling thread's
