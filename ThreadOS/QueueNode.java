@@ -12,7 +12,6 @@ public class QueueNode {
   //constructor
   public QueueNode() {
     queue = new Vector<Integer>();
-    queue.clear();
   }
   
   // sleep until notified if there are no waiting threads

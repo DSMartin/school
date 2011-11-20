@@ -14,7 +14,7 @@ class TestThread3b extends Thread {
     long startTime = new Date().getTime();
     byte[] byteArray = new byte[512];
     Random generator = new Random();
-    for (int i = 0; i < 120; i++) {
+    for (int i = 0; i < 100; i++) {
       // read random bytes from blocks with index 0 through 1000 (non-inclusive)
       SysLib.rawread(generator.nextInt(1000), byteArray);
       // write random bytes from blocks with index 0 through 1000 (non-inclusive)

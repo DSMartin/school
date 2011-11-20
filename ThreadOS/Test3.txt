@@ -1,0 +1,78 @@
+1.  Specifications and descriptions of your Test3a.java, TestThread3a.java 
+    and TestThread3b.java programs
+    
+    Test3a.java is a driver program that calls two worker processes, TestThread3a
+    and TestThread3b.  It creates a pair of threads (one for each worker process),
+    calls SysLib.exec to start the threads and then calls SysLib.join so that
+    the joining threads will sleep under the condition = this thread ID in a 
+    waitQueue (which the scheduler will use.)
+    
+    Test3a will record a startTime and and endTime and output the duration
+    (elapsed time) for all worker threads to complete.
+    
+    TestThread3a and TestThread3b will record its respective startTime and endTime
+    and output its individual duration as well.
+    
+    TestThread3a performs CPU bound processing, whereas TestThread3b performs
+    I/O intensive activity. TestThread3a executes an algorithm to solve the
+    popular Tower of Hanoi problem for three poles, where pole 1 is the start
+    pole and pole 3 is the end pole for 30 disks of increasing size. TestThread3b
+    performs I/O intensive operations by performing 400 consecutive reads and
+    writes of 512 bytes randomly over a 1000 blocks of size 512 bytes.
+    
+2.  Discussion about performance results, especially the differences
+
+    The performance of 8 pairs of threads (16 threads total) is significantly
+    better in the second run, where I/O bound threads do not do set in a busy-wait
+    state when disk read/wrtite/sync waits are performed.
+    
+    All the threads in this test are completed quicker in the second run, both
+    individually and as a group. This is attributed to more free CPU cycles
+    that are made available when busy-waits are removed for disk waits and 
+    replaced with sleeps (via wait and notify calls) where tids are placed in
+    an ioQueue (one condition represents the case when a thread is waiting for
+    the disk to accept a request and a second condition represents a thread
+    waiting for the disk to complete a service.)
+    
+    In the first run, where busy-waits occur for disk waits, all CPU bound
+    threads complete before the I/O bound threads. The scheduler in this case
+    is favoring all CPU bound threads. In the second run, where ioQueue is used
+    to avoid busy-waits, a better mix of thread completions (between I/O bound
+    and CPU bound) are intermingled, and I/O bound threads are slightly favored
+    by the scheduler.
+    
+    The total completion time is 614.83 seconds for all threads in the first
+    run compared to 356.68 seconds in the second run, which shows much improvement
+    when disk wait queuing is used. This shows that the CPU was performing
+    significant busy-waits which were inefficient in the case disk waits are
+    much longer compared to the overhead incurred by context-switching when the
+    CPU is relinquished for other ready threads.
+    
+3.  Discussion of any significant differences between the behavior of Test3 
+    (distribution version) and Test3a (your version) 
+    
+    Both the Test3 (distibution version) and Test3a (my version) show the same
+    behavior of improvement in processing times. Test3a outputs the elapsed
+    time for individual threads (showing more detail) than the Test3 distribution
+    version. Another difference is that the scheduler favors the CPU-bound threads
+    when 8 pairs of threads are started (all computation-bound threads finished
+    before the disk-bound threads.) Test3a shows a better balance where the
+    scheduler doesn't show extreme preference for CPU versus I/O bound threads
+    in my tests.
+    
+4.  Discussion of the data structures you considered for implementing QueueNode 
+    and the collection of QueueNodes inside SyncQueue and why you used the data 
+    structures you selected 
+    
+    I chose to use a Vector<Integer> as the data structure to store tids that
+    will wait in queue. This structure allows synchronized access which is
+    necessary to avoid race conditions. I chose to wrap the built-in size()
+    method of the Vector class in my own QueueNode class so that I could ensure
+    synchronized access to the number of components in the Vector.
+    
+    For the SyncQueue class I am just storing an array of QueueNode objects.
+    When a waitQueue is created, each index in the array represents a tid
+    that calling threads will wait on. When an ioQueue is created, each index
+    in the array will represent a condition of disk waits (either 1 or 2) for
+    the case of a thread waiting for the disk to accept a request and the case 
+    of a thread waiting for the disk to complete a service, respectively.

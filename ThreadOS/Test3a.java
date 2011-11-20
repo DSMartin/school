@@ -21,7 +21,7 @@ class Test3a extends Thread {
       SysLib.exec(strArray1);
       SysLib.exec(strArray2);
     }
-    for (int i = 0; i < pairs*2; i++) {
+    for (int i = 0; i < pairs * 2; i++) {
       SysLib.join();
     }
     long endTime = new Date().getTime();
