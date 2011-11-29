@@ -8,9 +8,6 @@ class TestThread2d extends Thread {
   private long activationTime;
   private long completionTime;
   private long lastExecutionTime;
-  private long totalExecutionTime;
-  private long totalWaitTime;
-  
   private static final int TIMEQUANTUM = 100;
 
   public TestThread2d ( String args[] ) {

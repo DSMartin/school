@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Scheduler extends Thread
 {
-    private Vector queue;
+    private Vector<TCB> queue;
     private int timeSlice;
     private static final int DEFAULT_TIME_SLICE = 1000;
 
@@ -66,13 +66,13 @@ public class Scheduler extends Thread
 
     public Scheduler( ) {
 	    timeSlice = DEFAULT_TIME_SLICE;
-	    queue = new Vector( );
+	    queue = new Vector<TCB>( );
 	    initTid( DEFAULT_MAX_THREADS );
     }
 
     public Scheduler( int quantum ) {
 	    timeSlice = quantum;
-	    queue = new Vector( );
+	    queue = new Vector<TCB>( );
 	    initTid( DEFAULT_MAX_THREADS );
     }
 
@@ -80,7 +80,7 @@ public class Scheduler extends Thread
     // A constructor to receive the max number of threads to be spawned
     public Scheduler( int quantum, int maxThreads ) {
 	    timeSlice = quantum;
-	    queue = new Vector( );
+	    queue = new Vector<TCB>( );
 	    initTid( maxThreads );
     }
 

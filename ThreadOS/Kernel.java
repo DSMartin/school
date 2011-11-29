@@ -56,6 +56,8 @@ public class Kernel
     private final static int COND_DISK_REQ = 1; // wait condition 
     private final static int COND_DISK_FIN = 2; // wait condition
 
+    private static FileSystem fs;
+
     // Standard input
     private static BufferedReader input
 	= new BufferedReader( new InputStreamReader( System.in ) );
@@ -67,158 +69,182 @@ public class Kernel
 	case INTERRUPT_SOFTWARE: // System calls
 	    switch( cmd ) { 
 	    case BOOT:
-		// instantiate and start a scheduler
-		scheduler = new Scheduler( ); 
-		scheduler.start( );
-		
-		// instantiate and start a disk
-		disk = new Disk( 1000 );
-		disk.start( );
+        // instantiate and start a scheduler
+        scheduler = new Scheduler( ); 
+        scheduler.start( );
+        
+        // instantiate and start a disk
+        disk = new Disk( 1000 );
+        disk.start( );
+
+        //TODO left off
 
 		// instantiate a cache memory
-		cache = new Cache( Disk.blockSize, 10 );
+        cache = new Cache( Disk.blockSize, 10 );
 
-		// instantiate synchronized queues
-		ioQueue = new SyncQueue( );
-		waitQueue = new SyncQueue( scheduler.getMaxThreads( ) );
-		return OK;
+        // instantiate synchronized queues
+        ioQueue = new SyncQueue( );
+        waitQueue = new SyncQueue( scheduler.getMaxThreads( ) );
+		fs = new FileSystem(1000);
+	    return OK;
+
 	    case EXEC:
-		return sysExec( ( String[] )args );
+        return sysExec( ( String[] )args );
 	    case WAIT:
-		// get the current thread id
-		if ((myTcb = scheduler.getMyTcb()) != null) {
-		  int tid = myTcb.getTid();
-		  // let the current thread sleep in waitQueue under the 
-  		// condition = this thread id
-		  return waitQueue.enqueueAndSleep(tid);
-		}
-		return ERROR;
-		
+        if ((myTcb = scheduler.getMyTcb()) != null) {
+            int myTid = myTcb.getTid( ); // get my thread ID
+            return waitQueue.enqueueAndSleep( myTid ); //wait on my tid
+            // woken up by my child thread
+        }
+        return ERROR;
 	    case EXIT:
-		// get the current thread's parent id
-		if ((myTcb = scheduler.getMyTcb()) != null) {
-		  int pid = myTcb.getPid();
-		  int tid = myTcb.getTid();
-		  if (pid != -1) {
-		    // search waitQueue for and wakes up the thread under the
-    		// condition = the current thread's parent id
-		    waitQueue.dequeueAndWakeup(pid, tid);
-		    // tell the Scheduler to delete the current thread (since it is exiting)
-		    scheduler.deleteThread();
-		    return OK;
-		  }
+		if ( ( myTcb = scheduler.getMyTcb( ) ) != null ) {
+		    int myPid = myTcb.getPid( ); // get my parent ID
+		    int myTid = myTcb.getTid( ); // get my ID
+		    if ( myPid != -1 ) {
+			// wake up a thread waiting on my parent ID
+			waitQueue.dequeueAndWakeup( myPid, myTid );
+			// I'm terminated!
+			scheduler.deleteThread( );
+			return OK;
+		    }
 		}
 		return ERROR;
-		
 	    case SLEEP:   // sleep a given period of milliseconds
 		scheduler.sleepThread( param ); // param = milliseconds
 		return OK;
 	    case RAWREAD: // read a block of data from disk
 		while ( disk.read( param, ( byte[] )args ) == false )
-      // condition 1 is used to represent the case when a thread is waiting
-      // for the disk to accept a request.
-      ioQueue.enqueueAndSleep( COND_DISK_REQ ); // relinquish CPU to another ready thread
-    while ( disk.testAndResetReady( ) == false )
-      // condition 2 represents the case when a thread is waiting for the
-      // disk to complete a service, (i.e., waiting for the buffer[] array
-      // to be read or written.)
-      ioQueue.enqueueAndSleep( COND_DISK_FIN ); // relinquish CPU to another ready thread
-    // now you can access data in buffer
+		    ioQueue.enqueueAndSleep( COND_DISK_REQ );
+		while ( disk.testAndResetReady( ) == false )
+		    ioQueue.enqueueAndSleep( COND_DISK_FIN );
 		return OK;
 	    case RAWWRITE: // write a block of data to disk
 		while ( disk.write( param, ( byte[] )args ) == false )
-      // condition 1 is used to represent the case when a thread is waiting
-      // for the disk to accept a request.
-      ioQueue.enqueueAndSleep( COND_DISK_REQ ); // relinquish CPU to another ready thread
+		    ioQueue.enqueueAndSleep( COND_DISK_REQ );
 		while ( disk.testAndResetReady( ) == false )
-        // condition 2 represents the case when a thread is waiting for the
-        // disk to complete a service, (i.e., waiting for the buffer[] array
-        // to be read or written.)
-        ioQueue.enqueueAndSleep( COND_DISK_FIN ); // relinquish CPU to another ready thread
-      // now you can access data in buffer
+		    ioQueue.enqueueAndSleep( COND_DISK_FIN );
 		return OK;
 	    case SYNC:     // synchronize disk data to a real file
 		while ( disk.sync( ) == false )
-      // condition 1 is used to represent the case when a thread is waiting
-      // for the disk to accept a request.
-      ioQueue.enqueueAndSleep( COND_DISK_REQ ); // relinquish CPU to another ready thread
+		    ioQueue.enqueueAndSleep( COND_DISK_REQ );
 		while ( disk.testAndResetReady( ) == false )
-        // condition 2 represents the case when a thread is waiting for the
-        // disk to complete a service, (i.e., waiting for the buffer[] array
-        // to be read or written.)
-        ioQueue.enqueueAndSleep( COND_DISK_FIN ); // relinquish CPU to another ready thread
-      // now you can access data in buffer
+		    ioQueue.enqueueAndSleep( COND_DISK_FIN );
 		return OK;
 	    case READ:
-		switch ( param ) {
-		case STDIN:
-		    try {
-			String s = input.readLine(); // read a keyboard input
-			if ( s == null ) {
-			    return ERROR;
+			switch (param)
+			{
+				case STDIN:
+					try
+					{
+						String s = input.readLine(); // read a keyboard input
+						if (s == null)
+						{
+							return ERROR;
+						}
+						// prepare a read buffer
+						StringBuffer buf = (StringBuffer)args;
+
+						// append the keyboard intput to this read buffer
+						buf.append(s);
+
+						// return the number of chars read from keyboard
+						return s.length();
+					}
+					catch (IOException e)
+					{
+						System.out.println(e);
+						return ERROR;
+					}
+				case STDOUT:
+				case STDERR:
+					System.out.println("threaOS: caused read errors");
+					return ERROR;
+				default:
+					//NOTE: got this code from prof in class
+					if ((myTcb = scheduler.getMyTcb()) != null)
+					{
+            SysLib.cout("TCB IN READ NOT NULL\n");
+						FileTableEntry ent = myTcb.getFtEnt(param);
+						return fs.read(ent, (byte[])args);
+					}
+					return ERROR;
 			}
-			// prepare a read buffer
-			StringBuffer buf = ( StringBuffer )args;
 
-			// append the keyboard intput to this read buffer
-			buf.append( s ); 
-
-			// return the number of chars read from keyboard
-			return s.length( );
-		    } catch ( IOException e ) {
-			System.out.println( e );
-			return ERROR;
-		    }
-		case STDOUT:
-		case STDERR:
-		    System.out.println( "threaOS: caused read errors" );
-		    return ERROR;
-		}
-		// return FileSystem.read( param, byte args[] );
-		return ERROR;
 	    case WRITE:
-		switch ( param ) {
-		case STDIN:
-		    System.out.println( "threaOS: cannot write to System.in" );
-		    return ERROR;
-		case STDOUT:
-		    System.out.print( (String)args );
-		    break;
-		case STDERR:
-		    System.err.print( (String)args );
-		    break;
-		}
-		return OK;
+        switch ( param ) {
+          case STDIN:
+              System.out.println( "threaOS: cannot write to System.in" );
+              return ERROR;
+          case STDOUT:
+              System.out.print( (String)args );
+              break;
+          case STDERR:
+              System.err.print( (String)args );
+              break;
+          default: //it must be a file descriptor
+            if ((myTcb = scheduler.getMyTcb())!= null) {
+              FileTableEntry ent = myTcb.getFtEnt(param);
+              return fs.write(ent, (byte[])args);
+            }
+			return ERROR;
+        }
+      return OK;
 	    case CREAD:   // to be implemented in assignment 4
-		return cache.read( param, ( byte[] )args ) ? OK : ERROR;
+        return cache.read( param, ( byte[] )args ) ? OK : ERROR;
 	    case CWRITE:  // to be implemented in assignment 4
-		return cache.write( param, ( byte[] )args ) ? OK : ERROR;
+        return cache.write( param, ( byte[] )args ) ? OK : ERROR;
 	    case CSYNC:   // to be implemented in assignment 4
-		cache.sync( );
-		return OK;
+        cache.sync( );
+        return OK;
 	    case CFLUSH:  // to be implemented in assignment 4
-		cache.flush( );
-		return OK;
+        cache.flush( );
+        return OK;
 	    case OPEN:    // to be implemented in project
-		return OK;
+        if ((myTcb = scheduler.getMyTcb()) != null) {
+          String[] s = (String[])args;
+          FileTableEntry ent = fs.open(s[0], s[1]);
+          int fd = myTcb.getFd(ent);
+          return fd;
+        } else {
+          return ERROR;
+        }
 	    case CLOSE:   // to be implemented in project
-		return OK;
+        if ((myTcb = scheduler.getMyTcb()) != null) {
+          FileTableEntry ent = myTcb.returnFd(param);
+          return fs.close(ent);
+        } else {
+          return ERROR;
+        }
 	    case SIZE:    // to be implemented in project
-		return OK;
+        if ((myTcb = scheduler.getMyTcb()) != null) {
+          FileTableEntry ent = myTcb.getFtEnt(param);
+          return fs.fsize(ent);
+        } else {
+          return ERROR;
+        }
 	    case SEEK:    // to be implemented in project
-		return OK;
+        if ((myTcb = scheduler.getMyTcb()) != null) {
+          FileTableEntry ent = myTcb.getFtEnt(param);
+          int[] i = (int[])args;
+          return fs.seek(ent, i[0], i[1]);
+        } else {
+          return ERROR;
+        }
 	    case FORMAT:  // to be implemented in project
-		return OK;
+        //TODO: doublecheck logic
+
+        return fs.format(param);
 	    case DELETE:  // to be implemented in project
-		return OK;
+        return fs.delete((String)args);
 	    }
 	    return ERROR;
 	case INTERRUPT_DISK: // Disk interrupts
-      //wake up the thread waiting for a service completion
-      ioQueue.dequeueAndWakeup( COND_DISK_FIN );
+	    // wake up the thread waiting for a service completion
+	    ioQueue.dequeueAndWakeup( COND_DISK_FIN );
 
-      //wake up the thread waiting for a request acceptance
-      ioQueue.dequeueAndWakeup( COND_DISK_REQ );
+	    // wake up the thread waiting for a request acceptance
+	    ioQueue.dequeueAndWakeup( COND_DISK_REQ );
 
 	    return OK;
 	case INTERRUPT_IO:   // other I/O interrupts (not implemented)

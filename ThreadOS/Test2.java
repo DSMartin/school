@@ -1,4 +1,3 @@
-import java.util.Date;
 
 class Test2 extends Thread {
 
