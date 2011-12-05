@@ -1,0 +1,95 @@
+Script started on Sat 19 Nov 2011 09:14:20 PM PST
+]0;hildj@uw1-320-18:~/ThreadOS[hildj@uw1-320-18 ThreadOS]$ cp Kernel_1.java Kernel.java
+]0;hildj@uw1-320-18:~/ThreadOS[hildj@uw1-320-18 ThreadOS]$ javac Kernel.java
+]0;hildj@uw1-320-18:~/ThreadOS[hildj@uw1-320-18 ThreadOS]$ javac Test3a.java
+]0;hildj@uw1-320-18:~/ThreadOS[hildj@uw1-320-18 ThreadOS]$ javac TestThread3a.java
+]0;hildj@uw1-320-18:~/ThreadOS[hildj@uw1-320-18 ThreadOS]$ javac TestThread3b.java
+]0;hildj@uw1-320-18:~/ThreadOS[hildj@uw1-320-18 ThreadOS]$ java Boot
+threadOS ver 1.0:
+Type ? for help
+threadOS: a new thread (thread=Thread[Thread-3,2,main] tid=0 pid=-1)
+-->l Test3a 8
+l Test3a 8
+threadOS: a new thread (thread=Thread[Thread-5,2,main] tid=1 pid=0)
+threadOS: a new thread (thread=Thread[Thread-7,2,main] tid=2 pid=1)
+threadOS: a new thread (thread=Thread[Thread-9,2,main] tid=3 pid=1)
+threadOS: a new thread (thread=Thread[Thread-11,2,main] tid=4 pid=1)
+threadOS: a new thread (thread=Thread[Thread-13,2,main] tid=5 pid=1)
+threadOS: a new thread (thread=Thread[Thread-15,2,main] tid=6 pid=1)
+threadOS: a new thread (thread=Thread[Thread-17,2,main] tid=7 pid=1)
+threadOS: a new thread (thread=Thread[Thread-19,2,main] tid=8 pid=1)
+threadOS: a new thread (thread=Thread[Thread-21,2,main] tid=9 pid=1)
+threadOS: a new thread (thread=Thread[Thread-23,2,main] tid=10 pid=1)
+threadOS: a new thread (thread=Thread[Thread-25,2,main] tid=11 pid=1)
+threadOS: a new thread (thread=Thread[Thread-27,2,main] tid=12 pid=1)
+threadOS: a new thread (thread=Thread[Thread-29,2,main] tid=13 pid=1)
+threadOS: a new thread (thread=Thread[Thread-31,2,main] tid=14 pid=1)
+threadOS: a new thread (thread=Thread[Thread-33,2,main] tid=15 pid=1)
+threadOS: a new thread (thread=Thread[Thread-35,2,main] tid=16 pid=1)
+threadOS: a new thread (thread=Thread[Thread-37,2,main] tid=17 pid=1)
+TestThread3a finished in 80895 msec.
+TestThread3a finished in 252004 msec.
+TestThread3a finished in 258156 msec.
+TestThread3a finished in 290169 msec.
+TestThread3a finished in 291404 msec.
+TestThread3a finished in 307041 msec.
+TestThread3a finished in 319778 msec.
+TestThread3a finished in 314442 msec.
+TestThread3b finished in 585579 msec.
+TestThread3b finished in 583177 msec.
+TestThread3b finished in 601039 msec.
+TestThread3b finished in 599757 msec.
+TestThread3b finished in 603397 msec.
+TestThread3b finished in 598009 msec.
+TestThread3b finished in 599635 msec.
+TestThread3b finished in 603806 msec.
+elapsed time = 614834 msec.
+-->q
+q
+]0;hildj@uw1-320-18:~/ThreadOS[hildj@uw1-320-18 ThreadOS]$ cp Kernel_2.java Kernel.java
+]0;hildj@uw1-320-18:~/ThreadOS[hildj@uw1-320-18 ThreadOS]$ javac Kernel.java
+]0;hildj@uw1-320-18:~/ThreadOS[hildj@uw1-320-18 ThreadOS]$ java Boot
+threadOS ver 1.0:
+Type ? for help
+threadOS: a new thread (thread=Thread[Thread-3,2,main] tid=0 pid=-1)
+-->l Test3a 8
+l Test3a 8
+threadOS: a new thread (thread=Thread[Thread-5,2,main] tid=1 pid=0)
+threadOS: a new thread (thread=Thread[Thread-7,2,main] tid=2 pid=1)
+threadOS: a new thread (thread=Thread[Thread-9,2,main] tid=3 pid=1)
+threadOS: a new thread (thread=Thread[Thread-11,2,main] tid=4 pid=1)
+threadOS: a new thread (thread=Thread[Thread-13,2,main] tid=5 pid=1)
+threadOS: a new thread (thread=Thread[Thread-15,2,main] tid=6 pid=1)
+threadOS: a new thread (thread=Thread[Thread-17,2,main] tid=7 pid=1)
+threadOS: a new thread (thread=Thread[Thread-19,2,main] tid=8 pid=1)
+threadOS: a new thread (thread=Thread[Thread-21,2,main] tid=9 pid=1)
+threadOS: a new thread (thread=Thread[Thread-23,2,main] tid=10 pid=1)
+threadOS: a new thread (thread=Thread[Thread-25,2,main] tid=11 pid=1)
+threadOS: a new thread (thread=Thread[Thread-27,2,main] tid=12 pid=1)
+threadOS: a new thread (thread=Thread[Thread-29,2,main] tid=13 pid=1)
+threadOS: a new thread (thread=Thread[Thread-31,2,main] tid=14 pid=1)
+threadOS: a new thread (thread=Thread[Thread-33,2,main] tid=15 pid=1)
+threadOS: a new thread (thread=Thread[Thread-35,2,main] tid=16 pid=1)
+threadOS: a new thread (thread=Thread[Thread-37,2,main] tid=17 pid=1)
+TestThread3b finished in 50263 msec.
+TestThread3b finished in 84065 msec.
+TestThread3b finished in 133991 msec.
+TestThread3b finished in 176981 msec.
+TestThread3b finished in 219753 msec.
+TestThread3a finished in 239194 msec.
+TestThread3a finished in 250829 msec.
+TestThread3a finished in 266674 msec.
+TestThread3a finished in 256510 msec.
+TestThread3b finished in 270355 msec.
+TestThread3a finished in 267256 msec.
+TestThread3a finished in 280264 msec.
+TestThread3b finished in 309867 msec.
+TestThread3a finished in 298875 msec.
+TestThread3a finished in 309271 msec.
+TestThread3b finished in 339639 msec.
+elapsed time = 356684 msec.
+-->q
+q
+]0;hildj@uw1-320-18:~/ThreadOS[hildj@uw1-320-18 ThreadOS]$ exit
+
+Script done on Sat 19 Nov 2011 09:32:30 PM PST

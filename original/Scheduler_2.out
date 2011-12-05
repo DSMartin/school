@@ -1,0 +1,36 @@
+Script started on Sun 06 Nov 2011 11:48:46 AM PST
+]0;hildj@uw1-320-21:~/ThreadOS[hildj@uw1-320-21 ThreadOS]$ cp Scheduler_2.java Scheduler.java 
+]0;hildj@uw1-320-21:~/ThreadOS[hildj@uw1-320-21 ThreadOS]$ javac Scheduler.java 
+Note: Scheduler.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Scheduler.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+]0;hildj@uw1-320-21:~/ThreadOS[hildj@uw1-320-21 ThreadOS]$ jaf[Kva Boot
+threadOS ver 1.0:
+Type ? for help
+threadOS: a new thread (thread=Thread[Thread-3,5,main] tid=0 pid=-1)
+-->l Test2c
+l Test2c
+threadOS: a new thread (thread=Thread[Thread-5,5,main] tid=1 pid=0)
+60945: Thread[a]: submitted
+threadOS: a new thread (thread=Thread[Thread-7,5,main] tid=2 pid=1)
+60950: Thread[b]: submitted
+threadOS: a new thread (thread=Thread[Thread-9,5,main] tid=3 pid=1)
+60951: Thread[c]: submitted
+threadOS: a new thread (thread=Thread[Thread-11,5,main] tid=4 pid=1)
+60951: Thread[d]: submitted
+threadOS: a new thread (thread=Thread[Thread-13,5,main] tid=5 pid=1)
+60952: Thread[e]: submitted
+threadOS: a new thread (thread=Thread[Thread-15,5,main] tid=6 pid=1)
+66465: Thread[b]: response:   990; wait:  4515; execution:  1000; turnaround:  5515
+68967: Thread[e]: response:  2494; wait:  7515; execution:   500; turnaround:  8015
+76511: Thread[c]: response:  1491; wait: 12560; execution:  3000; turnaround: 15560
+84527: Thread[a]: response:   493; wait: 18582; execution:  5000; turnaround: 23582
+91525: Thread[d]: response:  1993; wait: 24574; execution:  6000; turnaround: 30574
+Test2c finished; total time = 34085
+-->q
+q
+Superblock synchronized
+]0;hildj@uw1-320-21:~/ThreadOS[hildj@uw1-320-21 ThreadOS]$ exit
+
+Script done on Sun 06 Nov 2011 11:50:06 AM PST

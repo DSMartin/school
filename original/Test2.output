@@ -1,0 +1,32 @@
+Script started on Sat 19 Nov 2011 08:57:39 PM PST
+]0;hildj@uw1-320-18:~/ThreadOS[hildj@uw1-320-18 ThreadOS]$ cp Kernel_1.java Kernel.java
+]0;hildj@uw1-320-18:~/ThreadOS[hildj@uw1-320-18 ThreadOS]$ javac Kernel.java
+]0;hildj@uw1-320-18:~/ThreadOS[hildj@uw1-320-18 ThreadOS]$ javac SyncQueue.java
+]0;hildj@uw1-320-18:~/ThreadOS[hildj@uw1-320-18 ThreadOS]$ javac QueueNode.java
+]0;hildj@uw1-320-18:~/ThreadOS[hildj@uw1-320-18 ThreadOS]$ java Boot
+threadOS ver 1.0:
+Type ? for help
+threadOS: a new thread (thread=Thread[Thread-3,2,main] tid=0 pid=-1)
+-->l Shell
+l Shell
+threadOS: a new thread (thread=Thread[Thread-5,2,main] tid=1 pid=0)
+shell[1]% Test2
+Test2
+threadOS: a new thread (thread=Thread[Thread-7,2,main] tid=2 pid=1)
+threadOS: a new thread (thread=Thread[Thread-9,2,main] tid=3 pid=2)
+threadOS: a new thread (thread=Thread[Thread-11,2,main] tid=4 pid=2)
+threadOS: a new thread (thread=Thread[Thread-13,2,main] tid=5 pid=2)
+threadOS: a new thread (thread=Thread[Thread-15,2,main] tid=6 pid=2)
+threadOS: a new thread (thread=Thread[Thread-17,2,main] tid=7 pid=2)
+Thread[b]: response time = 3999 turnaround time = 5019 execution time = 1020
+Thread[e]: response time = 7004 turnaround time = 7514 execution time = 510
+Thread[c]: response time = 5000 turnaround time = 8060 execution time = 3060
+Thread[a]: response time = 2997 turnaround time = 8097 execution time = 5100
+Thread[d]: response time = 6002 turnaround time = 12122 execution time = 6120
+shell[2]% exit
+exit
+-->q
+q
+]0;hildj@uw1-320-18:~/ThreadOS[hildj@uw1-320-18 ThreadOS]$ exit
+
+Script done on Sat 19 Nov 2011 08:58:53 PM PST
