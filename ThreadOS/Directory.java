@@ -1,4 +1,4 @@
-//Modified by:  Michael Xavier and Maridel Legaspi
+//Created by :  John Hildebrant
 //File		 :  Directory.java
 //Description:  The root '/' directory is the only one predefined by this file
 //				system.  All files are maintained in the root directory.  It

@@ -1,16 +1,16 @@
-//Modified by:  Michael Xavier and Maridel Legaspi
+//Created by :  John Hildebrant
 //File		 :  FileTable.java
 //Description:  File Table shared among all user threads
 
 import java.util.*;
 
 public class FileTable {
-	private Vector table;         // the actual entity of this file table
+	private Vector<FileTableEntry> table;         // the actual entity of this file table
 	private Directory dir;        // the root directory 
 
 	// constructor
 	public FileTable(Directory directory) { 
-		table = new Vector();     // instantiate a file table
+		table = new Vector<FileTableEntry>();     // instantiate a file table
 		dir = directory;          // receive a reference to the Director
 	}                             // from the file system
 

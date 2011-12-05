@@ -1,4 +1,4 @@
-//Modified by:  Michael Xavier and Maridel Legaspi
+//Created by :  John Hildebrant
 //File		 :  Inode.java
 //Description:  An inode describes a file.  It is stored in the disk after the 
 //				superblock.  Each diskblock takes up to 16 inodes.  Each inode
@@ -130,7 +130,7 @@ public class Inode {
 	}
 
 	public Vector<Short> deallocAllBlocks(int iNumber) {
-		Vector blocks_freed = new Vector<Short>();
+		Vector<Short> blocks_freed = new Vector<Short>();
 		//clear the directs
 		for (int i = 0; i < directSize; i++) {
 			if (direct[i] > 0) {

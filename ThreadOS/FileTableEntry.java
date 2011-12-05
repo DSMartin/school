@@ -1,4 +1,4 @@
-//Coded by	 :  Michael Xavier and Maridel Legaspi
+//Created by :  John Hildebrant
 //File		 :  FileTableEntry.java
 
 public class FileTableEntry

@@ -1,10 +1,9 @@
-//Modified by:  Michael Xavier and Maridel Legaspi
+//Modified by:  John Hildebrant
 //File		 :  Kernel.java
 //Description:  receives an interrupt, services it if possible, otherwise
 //				forwards its request to FileSystem, Scheduler or Disk...
 //				It returns a completion status
 
-import java.util.*;
 import java.lang.reflect.*;
 import java.io.*;
 
@@ -85,7 +84,7 @@ public class Kernel
 				disk.start( );
 
 				// instantiate a cache memory
-				cache = new Cache( disk.blockSize, 10 );
+				cache = new Cache( Disk.blockSize, 10 );
 
 				// instantiate synchronized queues
 				ioQueue = new SyncQueue( );
@@ -158,7 +157,7 @@ public class Kernel
 							}
 						case STDOUT:
 						case STDERR:
-							System.out.println("threaOS: caused read errors");
+							System.out.println("threadOS: caused read errors");
 							return ERROR;
 						default:
 							//NOTE: got this code from prof in class
@@ -171,7 +170,7 @@ public class Kernel
 				case WRITE:
 					switch ( param ){
 						case STDIN:
-							System.out.println("threaOS: cant write to STDIN");
+							System.out.println("threadOS: cant write to STDIN");
 							return ERROR;
 						case STDOUT:
 							System.out.print( (String)args );
@@ -253,7 +252,7 @@ public class Kernel
 
 		try {
 			//get the user thread class from its name
-			Class thrClass = Class.forName( thrName ); 
+			Class<?> thrClass = Class.forName( thrName ); 
 			if ( args.length == 1 ) // no arguments
 				thrObj = thrClass.newInstance( ); // instantiate this class obj
 			else {  // some arguments
@@ -264,7 +263,7 @@ public class Kernel
 					thrArgs[i - 1] = args[i];
 				Object[] constructorArgs = new Object[] { thrArgs };
 				// locate this class object's constructors
-				Constructor thrConst 
+				Constructor<?> thrConst 
 					= thrClass.getConstructor( new Class[] {String[].class} );
 				// instantiate this class object by calling this constructor
 				// with arguments

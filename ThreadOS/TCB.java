@@ -3,7 +3,6 @@ public class TCB {
     private int tid = 0;
     private int pid = 0;
     private boolean terminated = false;
-    private int sleepTime = 0;
     public FileTableEntry[] ftEnt = null; // added for the file system
 
     public TCB( Thread newThread, int myTid, int parentTid ) {
@@ -64,7 +63,7 @@ public class TCB {
 	    return null;
     }
 
-    // added for the file systme
+    // added for the file system
     public synchronized FileTableEntry getFtEnt( int fd ) {
 	if ( fd >= 3 && fd < 32 )
 	    return ftEnt[fd];

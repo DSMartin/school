@@ -1,10 +1,4 @@
-//Coded by	 :  Michael Xavier and Maridel Legaspi
-//File		 :  SuperBlock.java
-//Description:  The disk block 0 is the Superblock.  It is used to describe the
-//				number of disk blocks, the number of inodes and the block 
-//				number of the head of the free list.
 
-import java.util.*;
 public class SuperBlock
 {
 	private final int defaultInodeBlocks = 64;
