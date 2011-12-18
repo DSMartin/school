@@ -1,0 +1,39 @@
+Script started on Fri 16 Dec 2011 12:51:01 PM PST
+]0;hildj@uw1-320-22:~/ThreadOS[hildj@uw1-320-22 ThreadOS]$ java Boot
+threadOS ver 1.0:
+Type ? for help
+threadOS: a new thread (thread=Thread[Thread-4,2,main] tid=0 pid=-1)
+-->l Test5 48
+l Test5 48
+threadOS: a new thread (thread=Thread[Thread-6,2,main] tid=1 pid=0)
+1: format( 48 )...................successfully completed
+Correct behavior of format......................2
+2: fd = open( "css430", "w+" )....successfully completed
+Correct behavior of open........................2
+3: size = write( fd, buf[16] )....successfully completed
+Correct behavior of writing a few bytes.........2
+4: close( fd )....................successfully completed
+Correct behavior of close.......................2
+5: reopen and read from "css430"..successfully completed
+Correct behavior of reading a few bytes.........2
+6: append buf[32] to "css430".....successfully completed
+Correct behavior of appending a few bytes.......1
+7: seek and read from "css430"....successfully completed
+Correct behavior of seeking in a small file.....1
+8: open "css430" with w+..........successfully completed
+Correct behavior of read/writing a small file.0.5
+9: fd = open( "bothell", "w" )....successfully completed
+10: size = write( fd, buf[6656] ).successfully completed
+Correct behavior of writing a lot of bytes....0.5
+11: close( fd )....................successfully completed
+12: reopen and read from "bothell"size = -1 (wrong)
+13: append buf[32] to "bothell"...size = -1 (wrong)
+15: open "bothell" with w+.........tmpBuf[511]=21 (wrong)
+16: delete("css430")..............successfully completed
+Correct behavior of delete....................0.5
+Test completed
+-->q
+q
+]0;hildj@uw1-320-22:~/ThreadOS[hildj@uw1-320-22 ThreadOS]$ exit
+
+Script done on Fri 16 Dec 2011 12:51:45 PM PST

@@ -26,7 +26,7 @@ public class Kernel
     public final static int READ    =  8; // SysLib.cin( )
     public final static int WRITE   =  9; // SysLib.cout( ) and SysLib.cerr( )
 
-    // System calls to be added in Assignment 4
+    // System calls for cache implementation
     public final static int CREAD   = 10; // SysLib.cread(int blk, byte b[])
     public final static int CWRITE  = 11; // SysLib.cwrite(int blk, byte b[])
     public final static int CSYNC   = 12; // SysLib.csync( )
@@ -159,8 +159,8 @@ public class Kernel
 						case STDERR:
 							System.out.println("threadOS: caused read errors");
 							return ERROR;
-						default:
-							//NOTE: got this code from prof in class
+						default: // it must be a file descriptor
+							// Added for final project
 							if ((myTcb = scheduler.getMyTcb()) != null){
 								FileTableEntry ent = myTcb.getFtEnt(param);
 								return fs.read(ent, (byte[])args);
@@ -178,7 +178,8 @@ public class Kernel
 						case STDERR:
 							System.err.print( (String)args );
 							break;
-						default: //it must be a file descriptor
+						default: // it must be a file descriptor
+						  // Added for final project
 							if ((myTcb = scheduler.getMyTcb())!= null) {
 								FileTableEntry ent = myTcb.getFtEnt(param);
 								return fs.write(ent, (byte[])args);

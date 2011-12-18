@@ -1,3 +1,10 @@
+// 
+//  SuperBlock.java
+//  
+//  Created by John Hildebrant
+//  Description:  The disk block 0 is the Superblock.  It is used to describe 
+//				the number of disk blocks, the number of inodes and the block 
+//				number of the head of the free list.
 
 public class SuperBlock
 {
