@@ -1,0 +1,27 @@
+h1. shell
+
+h2. Introduction
+
+shell is an implementation of a simple shell on Linux variants.
+
+h2. Library dependencies
+
+shell currently requires libreadline to work.
+
+h2. Compatibility
+
+shell is known to compile and run on Linux and Mac OSX.
+
+h2. Features
+
+* Display a prompt ([User@Host] path>)
+* Execute a built-in command or external commands
+* history command to query the command line histories
+* Exit the shell through Ctrl-C or exit / quit command
+* Support put the process to the background by using '&'
+* List environment variables through listenv commands
+* help to see a brief built-in command help
+* When a process is running, hit Ctrl+C to return to shell.
+* Supports browsing and modify command line by arrow keys
+* Supports TAB auto-completion
+* Detects if terminal supports color, and colorize the message
