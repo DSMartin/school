@@ -5,19 +5,7 @@
 //  Created by Hildebrant, John on 2012-01-21.
 // 
 
-#include <cstdio>
-#include <readline/readline.h>
-#include <readline/history.h>
-#include <iostream>
-#include <sstream>
-#include <string>
-#include <vector>
-#include <cstdlib>
-#include <unistd.h>
-#include <sys/wait.h>
-#include "commandparser.h"
-#include <pwd.h>
-#include <signal.h>
+#include "shell.h"
 using namespace std;
 
 extern int errno;
@@ -41,7 +29,7 @@ void debug(string msg) {}
 #endif
 
 /**
- * This method gives you string trimmed the extra whitespaces in the begin or end.
+ * This method trims the extra whitespaces in the beginning or end.
  * @param str String to be trimmed
  */
 void trim(string& str)
@@ -97,6 +85,30 @@ string expandHomeDirectory(string str)
 }
 
 /**
+ * Spawn a new process, and run a single command
+ * @param r A CommandParserResultPart object to be executed.
+ */
+void spawn(CommandParserResultPart r)
+{
+  int pid = fork();
+  
+  if (pid == 0)
+    execute(r);
+  else if (pid > 0)
+  {
+    if (!r.background)
+    {
+      waitingpid = pid;
+      waitpid(pid, NULL, NULL);
+    }
+  }
+  else
+    cout << msg_head << "Sorry, fork failed!" << endl;
+  
+  return;
+}
+
+/**
  * Execute the command
  * @param r A CommandParserResultPart object to be executed.
  */
@@ -139,7 +151,8 @@ void execute(CommandParserResultPart r)
     fp = fopen(r.redirIn.c_str(), "r");
     fd = fileno(fp);
     if (dup2(fd, STDIN_FILENO) == -1)
-      cerr << msg_head << "Unable to redirect STDIN from " << r.redirIn << endl;
+      cerr << msg_head << "Unable to redirect STDIN from " << r.redirIn 
+           << endl;
   }
 
   if (r.redirOut != "")
@@ -147,7 +160,8 @@ void execute(CommandParserResultPart r)
     fp = fopen(r.redirOut.c_str(), "w");
     fd = fileno(fp);
     if (dup2(fd, STDOUT_FILENO) == -1)
-      cerr << msg_head << "Unable to redirect STDOUT to " << r.redirOut << endl;
+      cerr << msg_head << "Unable to redirect STDOUT to " << r.redirOut 
+           << endl;
   }
 
   if (r.redirAppend != "")
@@ -174,34 +188,9 @@ void execute(CommandParserResultPart r)
 }
 
 /**
- * Spawn a new process, and run a single command
- * @param r A CommandParserResultPart object to be executed.
- */
-void spawn(CommandParserResultPart r)
-{
-  int pid = fork();
-  
-  if (pid == 0)
-    execute(r);
-  else if (pid > 0)
-  {
-    if (!r.background)
-    {
-      waitingpid = pid;
-      waitpid(pid, NULL, NULL);
-    }
-  }
-  else
-    cout << msg_head << "Sorry, fork failed!" << endl;
-  
-  return;
-}
-
-
-/**
  * Recursively spawn new processes to create specified pipe chain
  * @param begin the begin iterator for the CommandParserResultParts
- * @param end the end iteartor for the CommandParserResultParts
+ * @param end the end iterator for the CommandParserResultParts
  */
 int spawn_for_pipe(vector<CommandParserResultPart>::iterator begin, 
                    vector<CommandParserResultPart>::iterator end)
@@ -258,16 +247,16 @@ int spawn_for_pipe(vector<CommandParserResultPart>::iterator begin,
 }
 
 /**
- * SIGINT(Ctrl + C) Handler, kill the waiting process if not in interactive mode. 
- * Otherwise, exit shell.
+ * SIGINT(Ctrl + C) Handler, kill the waiting process if not in interactive  
+ * mode. Otherwise, exit shell.
  * @params sig signal number (In our case, this will always be SIGINT.)
  */
 void sigint_handler(int sig)
 {
   if (!interactive)
   {
-    cout << endl << msg_head << "Sending SIGINT to Kill the foreground process..." 
-         << endl;
+    cout << endl << msg_head 
+         << "Sending SIGINT to Kill the foreground process..." << endl;
     kill(waitingpid, SIGINT);
     cout << endl;
   }
@@ -352,7 +341,7 @@ int main()
     CommandParserResult r = parser.parse(command);
     
     // Handle it here if it's shell built-in commands
-    // or handle it to the spawn function
+    // or handle it in the spawn function
     if (r.parts.size() == 0)
       continue;
     
@@ -389,7 +378,8 @@ int main()
       if (color_output)
       {
         cout << "\033[1;37mshell 1.0 -Help-\033[m" << endl << endl;
-        printf("%10s %s\n", "\033[1;32mlistenv\033[m", "List all environment variables");
+        printf("%10s %s\n", "\033[1;32mlistenv\033[m", 
+               "List all environment variables");
         printf("%10s %s\n", "\033[1;32mhelp\033[m", "Display this help");
         printf("%10s %s\n", "\033[1;32mquit\033[m", "Leave this shell");
         cout << endl;

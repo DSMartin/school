@@ -87,6 +87,11 @@ CommandParserResult CommandParser::parse(string command)
 		{
 			rp.command = input;
 		}
+		else if (input == ";")
+		{
+      rp.background = false;
+      createNextPart = true;
+		}
 		else if (input == "&")
 		{
 			rp.background = true;

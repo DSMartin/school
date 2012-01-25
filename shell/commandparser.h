@@ -14,7 +14,7 @@ using namespace std;
 /**
  * This struct contains the detail part of command
  * Each part is a command with extra information to determine whether
- * it should runs in the background or pipe the output to next program
+ * it should run in the background or pipe the output to next program
  */
 struct CommandParserResultPart
 {
