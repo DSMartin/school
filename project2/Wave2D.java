@@ -14,33 +14,33 @@ import javax.swing.JFrame;
 class Wave2D
   implements Runnable
 {
-  static final int defaultN = 100;  // the default system size
+  static final int defaultN = 100;   // the default system size
   static final int defaultCellWidth = 8;
   static final Color bgColor = new Color(255, 255, 255); // white background
-  static final double c = 1.0D;     // wave speed
-  static final double dt = 0.1D;    // a time quantum for simulation
-  static final double dd = 2.0D;    // a change of the surface
-  static final double initLowerBound = 0.4D;  // lower bound for splash center
-  static final double initUpperBound = 0.6D;  // upper bound for splash center
-  static final double z_init = 20.0D;         // initialize Zt_i,j
-  private int N = 0;                // simulation size
-  private int runTime = 0;          // simulation time
-  private int interval = 0;         // the interval time to update the
-                                    // graphical window
-  private int nThreads = 1;         // default to one thread
-  private int[] sync = null;        // threads share it and synchronize on it
-  private double[][][] z;           // simulation space
-  private double[][] z_last;        // compare z to last value to avoid paint
-                                    // if cell value is unchanged
-  private int time;                 // compute z at various times
-  private boolean initPaint = true; // first paint of graphics
-  private JFrame gWin;              // a graphic's window
-  private int cellWidth;            // each cell's width in the window
-  private Insets theInsets;         // the insets of the window
-  private Color[] wvColor;          // wave color
-  private int threadId = -1;        // thread index
-  private int lowerBound = 0;       // divide the space among threads
-  private int upperBound = 0;       // divide the space among threads
+  static final double c = 1.0D;      // wave speed
+  static final double dt = 0.1D;     // a time quantum for simulation
+  static final double dd = 2.0D;     // a change of the surface
+  static final int initLow = 40;     // lower bound for splash center
+  static final int initHigh = 60;    // upper bound for splash center
+  static final double z_init = 20.0D;// initialize Zt_i,j
+  private int N = 0;                 // simulation size
+  private int runTime = 0;           // simulation time
+  private int interval = 0;          // the interval time to update the
+                                     // graphical window
+  private int nThreads = 1;          // default to one thread
+  private int[] sync = null;         // threads share it and synchronize on it
+  private double[][][] z;            // simulation space
+  private double[][] z_last;         // compare z to last value to avoid paint
+                                     // if cell value is unchanged
+  private int time;                  // compute z at various times
+  private boolean initPaint = true;  // first paint of graphics
+  private JFrame gWin;               // a graphic's window
+  private int cellWidth;             // each cell's width in the window
+  private Insets theInsets;          // the insets of the window
+  private Color[] wvColor;           // wave color
+  private int threadId = -1;         // thread index
+  private int lowerBound = 0;        // divide the space among threads
+  private int upperBound = 0;        // divide the space among threads
 
   public Wave2D(int[] sync, double[][][] space, int time, int interval, 
                 int nThreads, int threadId)
@@ -73,17 +73,18 @@ class Wave2D
     Date startTime = new Date();
     
     // at t == 0 (initialization)
-    int x = N / 100;
+    int x = N / defaultN;
     
-    for (int j = 0; j < N; j++) {
-      if (inBounds(j)) {
-        for (int k = 0; k < N; k++) {
-          if (j > 40 * x && j < 60 * x && k > 40 * x && k < 60 * x) {
-            z[0][j][k] = z_init;
+    for (int i = 0; i < N; i++) {
+      if (inBounds(i)) {
+        for (int j = 0; j < N; j++) {
+          if (i > initLow * x && i < initHigh * x && 
+              j > initLow * x && j < initHigh * x) {
+            z[0][i][j] = z_init;
           }
           // no movement outside initialization boundary
           else {
-            z[0][j][k] = 0.0D;
+            z[0][i][j] = 0.0D;
           }
         }
       }
