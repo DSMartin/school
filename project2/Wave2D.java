@@ -73,18 +73,17 @@ class Wave2D
     Date startTime = new Date();
     
     // at t == 0 (initialization)
-    double lBound = initLowerBound * N;
-    double uBound = initUpperBound * N;
+    int x = N / 100;
     
-    for (int i = 0; i < N; i++) {
-      if (inBounds(i)) {
-        for (int j = 0; j < N; j++) {
-          if (i > lBound && i < uBound && j > lBound && j < uBound) {
-            z[0][i][j] = z_init;
+    for (int j = 0; j < N; j++) {
+      if (inBounds(j)) {
+        for (int k = 0; k < N; k++) {
+          if (j > 40 * x && j < 60 * x && k > 40 * x && k < 60 * x) {
+            z[0][j][k] = z_init;
           }
           // no movement outside initialization boundary
           else {
-            z[0][i][i] = 0.0D;
+            z[0][j][k] = 0.0D;
           }
         }
       }
