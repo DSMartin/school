@@ -66,10 +66,10 @@ class Wave2D
   }
   
   private boolean inBounds(int iPosition) {
-    return lowerBound <= iPosition && iPosition <= upperBound;
+    return (lowerBound <= iPosition) && (iPosition <= upperBound);
   }
 
-  public void run( ) {
+  public void execute( ) {
     Date startTime = new Date();
     
     // at t == 0 (initialization)
@@ -166,12 +166,11 @@ class Wave2D
 
   private void barrier() {
     synchronized ( sync ) {
-      // increment sync[0], because I reached the barrier
-      sync[0]++;
       
+      // increment sync[0], because I reached the barrier
       // if sync[0] has not reached nThreads, there must be someone else who
       // has not called barrier( )
-      if (sync[0] < nThreads) {
+      if (++sync[0] < nThreads) {
         try {
           // let's wait
           sync.wait();
@@ -261,6 +260,10 @@ class Wave2D
     }
     initPaint = false;
   }
+  
+  public void run() {
+    execute();
+  }
 
   private static void usage() {
     System.err.println("usage: java Wave2D size time interval nThreads");
@@ -308,6 +311,6 @@ class Wave2D
     }
     
     // threadId 0
-    waves[0].run( );
+    waves[0].execute( );
   }
 }
