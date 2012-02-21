@@ -358,6 +358,10 @@ public class OnlineTicTacToe implements ActionListener {
         synchronized (myTurn) {
           // spin lock until I make a move
           if (myTurn[0]) continue;
+          for (int i = 0; i < NBUTTONS; i++) {
+            if (button[i].getText().equals(""))
+              button[i].setEnabled(false);
+          }
           System.out.println("waiting for counterpart...");
           int i = input.readInt();
           // blocked until counterpart writes to input stream
@@ -365,6 +369,10 @@ public class OnlineTicTacToe implements ActionListener {
           markButton(i, yourMark);
           checkWon(yourMark);
           try {
+            for (int j = 0; j < NBUTTONS; j++) {
+              if (button[j].getText().equals(""))
+                button[j].setEnabled(true);
+            }
             myTurn.wait();
           } catch (InterruptedException ie) {
             // woken up by peer
