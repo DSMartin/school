@@ -306,13 +306,13 @@ public class OnlineTicTacToe implements ActionListener {
     }
   }
   
-  private void checkWon(String mark) {
+  private boolean checkWon(String mark) {
     // check vertical
     for (int i = 0; i < 3; i++) {
       if (buttonMarkedWith(i, mark) && buttonMarkedWith(i + 3, mark) && 
               buttonMarkedWith(i + 6, mark)) {
         showWon(mark);
-        return;
+        return true;
       }
     }
     // check horizontal
@@ -320,25 +320,30 @@ public class OnlineTicTacToe implements ActionListener {
       if (buttonMarkedWith(i, mark) && buttonMarkedWith(i + 1, mark) && 
               buttonMarkedWith(i + 2, mark)) {
         showWon(mark);
-        return;
+        return true;
       }
     }
     // check diagonal 0 4 8
     if (buttonMarkedWith(0, mark) && buttonMarkedWith(4, mark) && 
             buttonMarkedWith(8, mark)) {
       showWon(mark);
-      return;
+      return true;
     }
     // check diagonal 2 4 6
     if (buttonMarkedWith(2, mark) && buttonMarkedWith(4, mark) && 
             buttonMarkedWith(6, mark)) {
       showWon(mark);
+      return true;
     }
     // check if all buttons clicked in which case it's a draw
     for (int i = 0; i < NBUTTONS; i++) {
       if (button[i].getText().equals("")) break;
-      if (i == NBUTTONS - 1) showDraw();
+      if (i == NBUTTONS - 1) {
+        showDraw();
+        return true;
+      }
     }
+    return false;
   }
   
   /**
@@ -367,11 +372,13 @@ public class OnlineTicTacToe implements ActionListener {
           // blocked until counterpart writes to input stream
           System.out.println("counterpart's position = " + i);
           markButton(i, yourMark);
-          checkWon(yourMark);
+          boolean isGameOver = checkWon(yourMark);
           try {
-            for (int j = 0; j < NBUTTONS; j++) {
-              if (button[j].getText().equals(""))
-                button[j].setEnabled(true);
+            if (!isGameOver) {
+              for (int j = 0; j < NBUTTONS; j++) {
+                if (button[j].getText().equals(""))
+                  button[j].setEnabled(true);
+              }
             }
             myTurn.wait();
           } catch (InterruptedException ie) {
