@@ -337,7 +337,7 @@ public class OnlineTicTacToe implements ActionListener {
     // check if all buttons clicked in which case it's a draw
     for (int i = 0; i < NBUTTONS; i++) {
       if (button[i].getText().equals("")) break;
-      if (i == 8) showDraw();
+      if (i == NBUTTONS - 1) showDraw();
     }
   }
   
