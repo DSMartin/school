@@ -278,25 +278,27 @@ public class OnlineTicTacToe implements ActionListener {
   */
   @Override
   public void actionPerformed( ActionEvent event ) {
-    synchronized (myTurn) {
-      while (!myTurn[0]) {}
-      int i = whichButtonClicked( event );
-      if ( markButton( i, myMark ) ) {
-        try {
-          output.writeInt(i);
-          output.flush();
-          System.out.println(new StringBuilder().append("wrote ").append(i).
-                  append(" to counterpart").toString());
-        } catch (SocketException se) {
-          System.out.println("Peer disconnected.");
-          System.exit(1);
-        } catch (IOException ioe) {
-          error(ioe);
-        }
-      } else {
-        return;
+    int i = whichButtonClicked( event );
+    if ( markButton( i, myMark ) ) {
+      try {
+        output.writeInt(i);
+        output.flush();
+        System.out.println(new StringBuilder().append("wrote ").append(i).
+                append(" to counterpart").toString());
+      } catch (SocketException se) {
+        System.out.println("Peer disconnected.");
+        System.exit(1);
+      } catch (IOException ioe) {
+        error(ioe);
       }
-      checkWon(myMark);
+      // if not a valid move return
+    } else {
+      return;
+    }
+    checkWon(myMark);
+    
+    // notify counterpart that move my move is complete
+    synchronized (myTurn) {
       myTurn[0] = false;
       myTurn.notify();
     }
@@ -352,14 +354,14 @@ public class OnlineTicTacToe implements ActionListener {
       while (true)
       try {
         synchronized (myTurn) {
+          // spin lock until I make a move
           if (myTurn[0]) continue;
           System.out.println("waiting for counterpart...");
           int i = input.readInt();
+          // blocked until counterpart writes to input stream
           System.out.println("counterpart's position = " + i);
           markButton(i, yourMark);
           checkWon(yourMark);
-          myTurn[0] = true;
-          myTurn.notify();
           try {
             myTurn.wait();
           } catch (InterruptedException ie) {
