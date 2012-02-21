@@ -6,15 +6,10 @@
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.EOFException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.net.InetAddress;
-import java.net.ServerSocket;
-import java.net.Socket;
-import java.net.SocketTimeoutException;
-import java.net.UnknownHostException;
+import java.net.*;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -94,10 +89,10 @@ public class OnlineTicTacToe implements ActionListener {
   */
   public OnlineTicTacToe( InetAddress addr, int port ) {
     // set up a TCP connection with my counterpart
-    boolean isConnected = createConnection( addr, port );
+    boolean mark = createConnection( addr, port );
     
     // set up a window
-    makeWindow( !isConnected ); // or makeWindow( false );
+    makeWindow( !mark ); // or makeWindow( false );
     
     // start my counterpart thread
     Counterpart counterpart = new Counterpart( );
@@ -106,16 +101,16 @@ public class OnlineTicTacToe implements ActionListener {
   
   private boolean createConnection( InetAddress addr, int port ) {
     ServerSocket serverSocket = null;
-    boolean selfReady = false;
-    boolean peerReady = false;
-    
+    boolean clientConnected = false;
+    boolean isConnectionValid = false; 
     try {
       serverSocket = new ServerSocket( port );
-      
       // Disable blocking I/O operations, by specifying a timeout
       serverSocket.setSoTimeout( INTERVAL );
     } catch (Exception e) {
-      selfReady = true;
+      // exception if ServerSocket already established, which means I am
+      // the client
+      clientConnected = true;
     }
     
     try {
@@ -123,7 +118,7 @@ public class OnlineTicTacToe implements ActionListener {
       String peerName = addr.getHostName();
       if (peerName.equals("localhost") || 
               peerName.equals(peerInetAddress.getHostName())) {
-        peerReady = true;
+        isConnectionValid = true;
       }
     } catch (Exception e) {
       error( e );
@@ -132,9 +127,8 @@ public class OnlineTicTacToe implements ActionListener {
     Socket socket = null;
     boolean amServer = false;
     
-    // round-robin
     while (true) {
-      if ( !selfReady ) {
+      if ( !clientConnected ) {
         try {
           socket = serverSocket.accept();
         } catch (SocketTimeoutException ste) {
@@ -144,21 +138,26 @@ public class OnlineTicTacToe implements ActionListener {
           error(ioe);
         }
         if (socket != null) {
+          // peer has connected
           amServer = true;
           break;
         }
       }
       
-      if (!selfReady && peerReady) continue;
+      // continue while loop until peer has been accepted
+      if ( !clientConnected && isConnectionValid ) continue;
       try {
-        socket = new Socket( addr, port );
+        if (socket == null)
+          socket = new Socket( addr, port );
       } catch (IOException ioe) {}
-      if (socket == null) continue;
+      if (socket == null && !clientConnected)
+        continue;
       amServer = false;
+      break;
     }
     
     System.out.println(new StringBuilder().append("amServer = ").
-            append(amServer).toString());
+            append(amServer).toString()); 
     try {
       if (amServer) {
         // if server, read from input stream
@@ -252,6 +251,16 @@ public class OnlineTicTacToe implements ActionListener {
   */
   private void showWon( String mark ) {
     JOptionPane.showMessageDialog( null, mark + " won!" );
+    for (int i = 0; i < 9; i++) {
+      button[i].setEnabled(false);
+    }
+  }
+  
+  /**
+  * Pops out another small window indicating that it's a draw
+  */
+  private void showDraw( ) {
+    JOptionPane.showMessageDialog( null, "It's a draw!");
   }
   
   /**
@@ -270,29 +279,24 @@ public class OnlineTicTacToe implements ActionListener {
   @Override
   public void actionPerformed( ActionEvent event ) {
     synchronized (myTurn) {
-      while (!myTurn[0]) {
-        try {
-          myTurn.wait();
-        } catch (InterruptedException ie) {
-          error(ie);
-        }
-      }
-        int i = whichButtonClicked( event );
-        if ( markButton( i, myMark ) ) {
+      while (!myTurn[0]) {}
+      int i = whichButtonClicked( event );
+      if ( markButton( i, myMark ) ) {
         try {
           output.writeInt(i);
           output.flush();
           System.out.println(new StringBuilder().append("wrote ").append(i).
                   append(" to counterpart").toString());
+        } catch (SocketException se) {
+          System.out.println("Peer disconnected.");
+          System.exit(1);
         } catch (IOException ioe) {
           error(ioe);
         }
       } else {
         return;
       }
-    
       checkWon(myMark);
-    
       myTurn[0] = false;
       myTurn.notify();
     }
@@ -326,6 +330,11 @@ public class OnlineTicTacToe implements ActionListener {
             buttonMarkedWith(6, mark)) {
       showWon(mark);
     }
+    // check if all buttons clicked in which case it's a draw
+    for (int i = 0; i < 9; i++) {
+      if (button[i].getText().equals("")) break;
+      if (i == 8) showDraw();
+    }
   }
   
   /**
@@ -341,26 +350,28 @@ public class OnlineTicTacToe implements ActionListener {
     @Override
     public void run( ) {
       while (true)
-        try {
+      try {
+        synchronized (myTurn) {
+          if (myTurn[0]) continue;
           System.out.println("waiting for counterpart...");
           int i = input.readInt();
           System.out.println("counterpart's position = " + i);
-          
-          synchronized (myTurn) {
-            if (!myTurn[0])
-            try {
-              // wait for peer to act
-              myTurn.wait();
-            } catch (InterruptedException ie) {
-              // woken up by peer
-            } 
-            markButton(i, yourMark);
-            checkWon(yourMark);
-            myTurn[0] = true;
-            myTurn.notify();
-          }
-       } catch (EOFException eofe) {
-       } catch (IOException ioe) {}
+          markButton(i, yourMark);
+          checkWon(yourMark);
+          myTurn[0] = true;
+          myTurn.notify();
+          try {
+            myTurn.wait();
+          } catch (InterruptedException ie) {
+            // woken up by peer
+          } 
+        }
+      } catch (SocketException se ) {
+        System.out.println("Peer has disconnected.");
+        System.exit(1);
+      } catch (Exception e) {
+        error(e);
+      }
     }
   }
 }
