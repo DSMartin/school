@@ -170,8 +170,10 @@ public class OnlineTicTacToe implements ActionListener {
         input = new ObjectInputStream(socket.getInputStream());
         output.writeObject("Hello!");
       }
-    } catch (IOException | ClassNotFoundException e) {
-      error(e);
+    } catch (IOException ioe) {
+        error(ioe);
+    } catch (ClassNotFoundException cnfe) {
+        error(cnfe);
     }
     
     return amServer;
@@ -251,7 +253,7 @@ public class OnlineTicTacToe implements ActionListener {
   */
   private void showWon( String mark ) {
     JOptionPane.showMessageDialog( null, mark + " won!" );
-    for (int i = 0; i < 9; i++) {
+    for (int i = 0; i < NBUTTONS; i++) {
       button[i].setEnabled(false);
     }
   }
@@ -287,7 +289,7 @@ public class OnlineTicTacToe implements ActionListener {
                 append(" to counterpart").toString());
       } catch (SocketException se) {
         System.out.println("Peer disconnected.");
-        System.exit(1);
+        System.exit(0);
       } catch (IOException ioe) {
         error(ioe);
       }
@@ -333,7 +335,7 @@ public class OnlineTicTacToe implements ActionListener {
       showWon(mark);
     }
     // check if all buttons clicked in which case it's a draw
-    for (int i = 0; i < 9; i++) {
+    for (int i = 0; i < NBUTTONS; i++) {
       if (button[i].getText().equals("")) break;
       if (i == 8) showDraw();
     }
@@ -366,11 +368,14 @@ public class OnlineTicTacToe implements ActionListener {
             myTurn.wait();
           } catch (InterruptedException ie) {
             // woken up by peer
-          } 
+          }
         }
       } catch (SocketException se ) {
         System.out.println("Peer has disconnected.");
-        System.exit(1);
+        System.exit(0);
+      } catch (java.io.EOFException eofe) {
+        System.out.println("Peer has disconnected.");
+        System.exit(0);
       } catch (Exception e) {
         error(e);
       }
