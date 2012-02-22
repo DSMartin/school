@@ -1,7 +1,16 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+// 
+//  OnlineTicTacToe.java
+//  
+//  Created by Hildebrant, John on 2012-02-21.
+//
+//  This is an online Internet program that involves two users in the same 
+//  tic-tac-toe game. Each user starts the game locally and operates on the 
+//  local 3-by-3 tic-tac-toe window that however interacts with his/her remote 
+//  counterpart’s window through the Internet, so that the two users can view 
+//  the same ongoing progress in their game.
+//  A peer-to-peer communicating program using non-blocking accept( ) as well 
+//  as multiple threads, (specifically saying, the main and the slave threads.)
+// 
 
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -14,10 +23,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author hildebj
- */
+
 public class OnlineTicTacToe implements ActionListener {
   private final int INTERVAL = 1000; // 1 second
   private final int NBUTTONS = 9; // #bottons
